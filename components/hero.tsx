@@ -22,23 +22,13 @@ const Hero = ({ language }: HeroProps) => {
     "  constructor() {",
     "    this.name = 'Cauã Campos';",
     "    this.role = 'Full Stack Developer';",
-    "    this.skills = ['React', 'Node.js', 'TypeScript'];",
     "  }",
     "",
     "  code() {",
     "    return 'Creating innovative solutions';",
     "  }",
-    "",
-    "  solveProblems() {",
-    "    while(problems.exist()) {",
-    "      problems.solve();",
-    "    }",
-    "    return 'All problems solved';",
-    "  }",
     "}",
     "",
-    "const me = new Developer();",
-    "console.log(me.code());",
   ]
 
   // Efeito de digitação
@@ -158,9 +148,9 @@ const Hero = ({ language }: HeroProps) => {
         <div className="absolute right-0 bottom-0 w-full md:w-1/2 h-full opacity-10 programmer-silhouette"></div>
       </div>
 
-      <div className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="container mx-auto px-4 z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8">
         {/* Conteúdo principal */}
-        <div className="w-full md:w-1/2 text-left">
+        <div className="lg:w-1/2 lg:text-left">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <span className="text-primary">Cauã</span> Campos

@@ -2,9 +2,9 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "components/ui/tabs"
+import { Badge } from "components/ui/badge"
+import { Button } from "components/ui/button"
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface ProjectsProps {

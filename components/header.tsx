@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { Button } from "components/ui/button"
 import { Menu, X } from "lucide-react"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "components/ui/use-toast"
 import { useMobile } from "hooks/use-mobile"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { ThemeToggle } from "components/theme-toggle"
 
 interface HeaderProps {
   language: "pt" | "en"

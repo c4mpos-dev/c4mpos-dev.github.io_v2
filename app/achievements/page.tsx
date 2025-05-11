@@ -4,10 +4,10 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Button } from "components/ui/button"
 import { ChevronLeft } from "lucide-react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useMobile } from "@/hooks/use-mobile"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "components/ui/tabs"
+import { useMobile } from "hooks/use-mobile"
 
 export default function AchievementsPage() {
   const [language, setLanguage] = useState<"pt" | "en">("pt")
