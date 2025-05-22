@@ -55,7 +55,7 @@ export function Header({ language, toggleLanguage, theme, setTheme }: HeaderProp
                 <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="text-2xl font-bold text-primary">
                         <span className="text-primary">C</span>
-                        <span className="text-foreground">Campos</span> 
+                        <span className="text-foreground">C</span> 
                     </div>
 
                     {/* Desktop Navigation */}
