@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
-import Header from "@/components/header"
+import { Header } from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Achievements from "@/components/achievements"

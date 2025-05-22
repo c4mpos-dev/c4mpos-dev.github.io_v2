@@ -1,13 +1,13 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Button } from "components/ui/button"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "components/ui/carousel"
-import { Card, CardContent } from "components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useMobile } from "hooks/use-mobile"
+import { useMobile } from "@/hooks/use-mobile"
 
 interface AchievementsProps {
   language: "pt" | "en"
