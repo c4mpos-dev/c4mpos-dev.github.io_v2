@@ -34,7 +34,7 @@ export function About({ language }: AboutProps) {
 
     const handleDownloadCV = () => {
         const link = document.createElement('a');
-        link.href = '/cv-caua.pdf'; // Ensure this path is correct
+        link.href = '/cv-caua.pdf';
         link.download = 'Curriculo-Cauã.pdf';
         document.body.appendChild(link);
         link.click();
@@ -52,7 +52,7 @@ export function About({ language }: AboutProps) {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-2">{content[language].title}</h2>
-                    <div className="w-20 h-1 bg-primary mx-auto"></div>
+                    <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -93,21 +93,21 @@ export function About({ language }: AboutProps) {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="bg-muted p-4 rounded-lg">
                                     <CodeXml className="text-primary mb-2" size={28}/>
-                                    <h3 className="font-bold text-lg">{language === "pt" ? "Desenvolvimento Web" : "Web Development"}</h3>
+                                    <h3 className="font-bold text-xs sm:text-base xl:text-lg">{language === "pt" ? "Desenvolvimento Web" : "Web Development"}</h3>
                                 </div>
                                 <div className="bg-muted p-4 rounded-lg">
                                     <Smartphone className="text-primary mb-2" size={28}/>
-                                    <h3 className="font-bold text-lg">
+                                    <h3 className="font-bold text-xs sm:text-base xl:text-lg">
                                         {language === "pt" ? "Desenvolvimento Mobile" : "Mobile Development"}
                                     </h3>
                                 </div>
                                 <div className="bg-muted p-4 rounded-lg">
                                     <Monitor className="text-primary mb-2" size={28}/>
-                                    <h3 className="font-bold text-lg">{language === "pt" ? "Frontend" : "Frontend"}</h3>
+                                    <h3 className="font-bold text-xs sm:text-base xl:text-lg">{language === "pt" ? "Frontend" : "Frontend"}</h3>
                                 </div>
                                 <div className="bg-muted p-4 rounded-lg">
                                     <Database className="text-primary mb-2" size={28}/>
-                                    <h3 className="font-bold text-lg">Backend</h3>
+                                    <h3 className="font-bold text-xs sm:text-base xl:text-lg">Backend</h3>
                                 </div>
                             </div>
                             
