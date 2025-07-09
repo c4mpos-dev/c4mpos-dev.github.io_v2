@@ -43,6 +43,7 @@ export function Header({ language, toggleLanguage, theme, setTheme }: HeaderProp
     const navItems = [
         { id: "home", labelPt: "Início", labelEn: "Home" },
         { id: "about", labelPt: "Sobre", labelEn: "About" },
+        { id: "experience", labelPt: "Experiência", labelEn: "Experience" },
         { id: "achievements", labelPt: "Conquistas", labelEn: "Achievements" },
         { id: "projects", labelPt: "Projetos", labelEn: "Projects" },
         { id: "skills", labelPt: "Habilidades", labelEn: "Skills" },
