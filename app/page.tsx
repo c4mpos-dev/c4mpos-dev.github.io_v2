@@ -5,12 +5,13 @@ import { useTheme } from "next-themes"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
-import Achievements from "@/components/achievements"
+import { Achievements } from "@/components/achievements"
 import Projects from "@/components/projects"
 import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
+import Experience from "@/components/experience"
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
@@ -37,6 +38,7 @@ export default function Home() {
       </div>
       <Hero language={language} />
       <About language={language} />
+      <Experience language={language} />
       <Achievements language={language} />
       <Projects language={language} />
       <Skills language={language} />
