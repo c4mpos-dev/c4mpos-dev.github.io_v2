@@ -67,14 +67,6 @@ export function About({ language }: AboutProps) {
                             <Image src={GraduationImg} alt="Cauã Campos" fill className="object-cover" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         </div>
-
-                        <div className="absolute -bottom-5 -right-5 w-32 h-32 bg-primary rounded-full flex items-center justify-center text-white font-bold">
-                            <div className="text-center">
-                                <div className="text-2xl">5+</div>
-                                <div className="text-xs">{language === "pt" ? "Anos de" : "Years of"}</div>
-                                <div className="text-xs">{language === "pt" ? "Experiência" : "Experience"}</div>
-                            </div>
-                        </div>
                     </motion.div>
 
                     <motion.div

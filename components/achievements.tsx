@@ -10,8 +10,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-import { useMobile } from "@/hooks/use-mobile";
-
 interface AchievementsProps {
     language: "pt" | "en"
 }
@@ -24,33 +22,33 @@ export function Achievements({ language }: AchievementsProps) {
     const achievements = [
         {
             id: 1,
+            titlePt: "Hackathon Construtech 2024",
+            titleEn: "Hackathon Construtech 2024",
+            datePt: "Maio 2024",
+            dateEn: "May 2024",
+            descriptionPt: "A INTLOG, minha equipe, conquistou o 1º lugar no Hackathon Construtech 2024, desenvolvendo uma solução inovadora para o setor de construção civil.",
+            descriptionEn: "INTLOG, my team, won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
+            image: "/achievements/geral/hackathon-construtech-2024.jpg",
+        },
+        {
+            id: 2,
             titlePt: "FIRST Robotics Championship",
             titleEn: "FIRST Robotics Championship",
             datePt: "Abril 2023",
             dateEn: "April 2023",
-            descriptionPt: "Nine Tails conquistou o prêmio 'Rookie Inspiration Award' no campeonato mundial de robótica FIRST em Houston, Texas.",
-            descriptionEn: "Nine Tails won the 'Rookie Inspiration Award' at the FIRST Robotics World Championship in Houston, Texas.",
+            descriptionPt: "Minha equipe, Nine Tails, conquistou o prêmio 'Rookie Inspiration Award' no Campeonato Mundial de Robótica FIRST em Houston, Texas.",
+            descriptionEn: "My team, Nine Tails, won the 'Rookie Inspiration Award' at the FIRST Robotics World Championship in Houston, Texas.",
             image: "/achievements/robotics/frc-houston.jpg",
         },
         {
-            id: 2,
-            titlePt: "Prêmio de Inovação Tecnológica",
-            titleEn: "Technological Innovation Award",
-            datePt: "Junho 2022",
-            dateEn: "June 2022",
-            descriptionPt: "Reconhecimento por desenvolvimento de solução inovadora para o setor financeiro.",
-            descriptionEn: "Recognition for developing an innovative solution for the financial sector.",
-            image: "/placeholder.svg?height=300&width=400",
-        },
-        {
             id: 3,
-            titlePt: "Certificação AWS Developer",
-            titleEn: "AWS Developer Certification",
-            datePt: "Março 2022",
-            dateEn: "March 2022",
-            descriptionPt: "Certificação oficial da Amazon Web Services para desenvolvimento em nuvem.",
-            descriptionEn: "Official Amazon Web Services certification for cloud development.",
-            image: "/placeholder.svg?height=300&width=400",
+            titlePt: "Fira RoboWorld Cup 2023",
+            titleEn: "Fira RoboWorld Cup 2023",
+            datePt: "Julho 2023",
+            dateEn: "July 2023",
+            descriptionPt: "A Smart Lego, minha equipe, conquistou o 3º lugar na modalidade Missão Impossível Hardware no Fira RoboWorld Cup em Wolfenbüttel, Alemanha.",
+            descriptionEn: "Smart Lego, my team, won 3rd place in the Impossible Mission Hardware category at the Fira RoboWorld Cup in Wolfenbüttel, Germany.",
+            image: "/achievements/robotics/fira-roboworld-cup-20231.jpg",
         },
     ]
 
