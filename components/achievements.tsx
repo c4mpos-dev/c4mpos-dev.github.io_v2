@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,6 +29,7 @@ export function Achievements({ language }: AchievementsProps) {
             descriptionPt: "A INTLOG, minha equipe, conquistou o 1º lugar no Hackathon Construtech 2024, desenvolvendo uma solução inovadora para o setor de construção civil.",
             descriptionEn: "INTLOG, my team, won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
             image: "/achievements/geral/hackathon-construtech-2024.jpg",
+            link: "https://example.com/react-certification"
         },
         {
             id: 2,
@@ -39,6 +40,7 @@ export function Achievements({ language }: AchievementsProps) {
             descriptionPt: "Minha equipe, Nine Tails, conquistou o prêmio 'Rookie Inspiration Award' no Campeonato Mundial de Robótica FIRST em Houston, Texas.",
             descriptionEn: "My team, Nine Tails, won the 'Rookie Inspiration Award' at the FIRST Robotics World Championship in Houston, Texas.",
             image: "/achievements/robotics/frc-houston.jpg",
+            link: "https://aws.amazon.com/certification/"
         },
         {
             id: 3,
@@ -48,7 +50,8 @@ export function Achievements({ language }: AchievementsProps) {
             dateEn: "July 2023",
             descriptionPt: "A Smart Lego, minha equipe, conquistou o 3º lugar na modalidade Missão Impossível Hardware no Fira RoboWorld Cup em Wolfenbüttel, Alemanha.",
             descriptionEn: "Smart Lego, my team, won 3rd place in the Impossible Mission Hardware category at the Fira RoboWorld Cup in Wolfenbüttel, Germany.",
-            image: "/achievements/robotics/fira-roboworld-cup-20231.jpg",
+            image: "/achievements/robotics/fira-roboworld-cup-2023.jpg",
+            link: "https://aws.amazon.com/certification/"
         },
     ]
 
@@ -60,13 +63,20 @@ export function Achievements({ language }: AchievementsProps) {
         setCount(api.scrollSnapList().length);
         setCurrent(api.selectedScrollSnap());
 
+        api.scrollTo(1, false);
+        setCurrent(1);
+
         api.on("select", () => {
             setCurrent(api.selectedScrollSnap());
         })
     }, [api]);
 
+    const scrollTo = (index: number) => {
+        api?.scrollTo(index)
+    }
+
     return (
-        <section id="achievements" className="py-20 bg-muted relative overflow-hidden">
+        <section id="achievements" className="py-20 bg-background relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -101,7 +111,7 @@ export function Achievements({ language }: AchievementsProps) {
                                                     src={achievement.image || "/placeholder.svg"}
                                                     alt={language === "pt" ? achievement.titlePt : achievement.titleEn}
                                                     fill
-                                                    className="object-cover rounded-t-lg"
+                                                    className="object-fill rounded-t-lg"
                                                 />
                                             </div>
                                             <div className="p-6">
@@ -114,6 +124,19 @@ export function Achievements({ language }: AchievementsProps) {
                                                 <p className="text-muted-foreground">
                                                     {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
                                                 </p>
+                                                {achievement.link && (
+                                                    <div className="mt-4">
+                                                        <a
+                                                            href={achievement.link}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
+                                                        >
+                                                            {language === "pt" ? "Ver Certificado" : "View Certificate"}
+                                                            <ExternalLink className="ml-2 h-4 w-4" />
+                                                        </a>
+                                                    </div>
+                                                )}
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -130,18 +153,15 @@ export function Achievements({ language }: AchievementsProps) {
                 <div className="flex justify-center gap-2 mt-4">
                     {Array.from({ length: count }, (_, index) => (
                         <button
-                        key={index}
-                        onClick={() => {
-                            if (api) {
-                                api.scrollTo(index)
-                            }
-                        }}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                            index === current ? "bg-primary scale-125" : "bg-primary/30 hover:bg-primary/50"
-                        }`}
-                        aria-label={`Go to slide ${index + 1}`}
+                            key={index + 1}
+                            onClick={() => api?.scrollTo(index)}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                index === current ? "bg-primary scale-125" : "bg-primary/30 hover:bg-primary/50"
+                            }`}
+                            aria-label={`Ir para o slide ${index + 1}`}
                         />
                     ))}
+
                 </div>
 
                 <div className="text-center mt-10">

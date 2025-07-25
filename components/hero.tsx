@@ -123,7 +123,7 @@ export function Hero({ language }: HeroProps) {
     }, []);
 
     const socialLinks = [
-        { icon: "fa-brands fa-whatsapp", url: "http://wa.me/5535984045926", label: "WhatsApp" },
+        { icon: "fa-brands fa-whatsapp", url: "http://wa.me/55241372475", label: "WhatsApp" },
         { icon: "fa-brands fa-github", url: "https://github.com/c4mpos-dev", label: "GitHub" },
         { icon: "fa-brands fa-linkedin", url: "https://www.linkedin.com/in/cau%C3%A3-campos/", label: "LinkedIn" },
         { icon: "fa-brands fa-instagram", url: "https://www.instagram.com/c4mp02/", label: "Instagram" }

@@ -146,7 +146,7 @@ const Projects = ({ language }: ProjectsProps) => {
   const totalMobilePages = Math.ceil(projects.mobile.length / projectsPerPage)
 
   return (
-    <section id="projects" className="py-20 bg-background relative overflow-hidden">
+    <section id="projects" className="py-20 bg-muted relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
