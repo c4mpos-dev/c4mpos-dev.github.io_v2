@@ -169,7 +169,7 @@ const Contact = ({ language }: ContactProps) => {
                                     <Button
                                         size="lg"
                                         className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-                                        onClick={() => handleContactClick("mailto:caua.campos@example.com")}
+                                        onClick={() => handleContactClick("mailto:campos.eet@gmail.com")}
                                     >
                                         <Mail className="w-5 h-5 mr-2" />
                                         {language === "pt" ? "Enviar Email" : "Send Email"}
@@ -181,7 +181,7 @@ const Contact = ({ language }: ContactProps) => {
                                         size="lg"
                                         variant="outline"
                                         className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-xl font-medium transition-all duration-300 bg-transparent"
-                                        onClick={() => handleContactClick("https://wa.me/5511987654321")}
+                                        onClick={() => handleContactClick("https://wa.me/5524981372475")}
                                     >
                                         <i className="fa-brands fa-whatsapp"></i>
                                         {language === "pt" ? "WhatsApp" : "WhatsApp"}
