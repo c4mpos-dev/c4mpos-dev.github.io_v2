@@ -177,13 +177,14 @@ export default function AchievementsPage() {
           id: 7,
           titlePt: "FIRA Regional",
           titleEn: "FIRA Regional",
-          datePt: "Novembro 2022",
-          dateEn: "November 2022",
+          datePt: "Setembro 2022",
+          dateEn: "September 2022",
           descriptionPt: "Campeão das categorias Cabo de Guerra e Missão Impossível.",
           descriptionEn: "Champion of the Tug of War and Impossible Mission categories.",
-          image: "/achievements/robotics/fira-regional.jpg",
+          image: "/achievements/robotics/fira-regional-rj.jfif",
           local: "Rio de Janeiro - RJ",
-          team: "Smart Lego"
+          team: "Smart Lego",
+          link: "https://www.instagram.com/p/Ci-81jWOZul/"
         },
         {
           id: 8,
