@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ArrowRight, Award, ChevronLeft, ChevronRight, ExternalLink, Star, Trophy } from "lucide-react";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
@@ -164,14 +164,111 @@ export function Achievements({ language }: AchievementsProps) {
 
                 </div>
 
-                <div className="text-center mt-10">
-                    <Link href="/achievements">
-                        <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-                            {language === "pt" ? "Ver Mais" : "See More"}
-                            <i className="fa-solid fa-arrow-right ml-2"></i>
-                        </Button>
-                    </Link>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="mt-16"
+                >
+                    <div className="relative bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 border border-primary/20 overflow-hidden">
+                        {/* Background Effects */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-pulse"></div>
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+
+                        {/* Floating Icons - Reduzidos no mobile */}
+                        <div className="absolute top-2 left-4 md:top-4 md:left-8 opacity-10 md:opacity-20">
+                            <motion.div
+                                animate={{ y: [-5, 5, -5] }}
+                                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                            >
+                                <Trophy className="w-5 h-5 md:w-8 md:h-8 text-primary" />
+                            </motion.div>
+                        </div>
+                        <div className="absolute top-4 right-6 md:top-8 md:right-12 opacity-10 md:opacity-20">
+                            <motion.div
+                                animate={{ y: [5, -5, 5] }}
+                                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
+                            >
+                                <Award className="w-4 h-4 md:w-6 md:h-6 text-primary" />
+                            </motion.div>
+                        </div>
+                        <div className="absolute bottom-3 right-4 md:bottom-6 md:right-8 opacity-10 md:opacity-20">
+                            <motion.div
+                                animate={{ rotate: [0, 360] }}
+                                transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                            >
+                                <Star className="w-4 h-4 md:w-7 md:h-7 text-primary" />
+                            </motion.div>
+                        </div>
+
+                        <div className="relative z-10 text-center">
+                            <motion.div
+                                animate={{ scale: [1, 1.05, 1] }}
+                                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                                className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-primary/20 rounded-full mb-4 md:mb-6"
+                            >
+                                <Trophy className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+                            </motion.div>
+
+                            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent px-2">
+                                {language === "pt" ? "Quer ver todas as minhas conquistas?" : "Want to see all my achievements?"}
+                            </h3>
+
+                            <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-lg max-w-2xl mx-auto px-2">
+                                {language === "pt"
+                                ? "Descubra minha jornada completa com mais de 15 certificações, prêmios e conquistas em robótica e tecnologia!"
+                                : "Discover my complete journey with over 15 certifications, awards and achievements in robotics and technology!"}
+                            </p>
+
+                            <Link href="/achievements">
+                                <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} className="inline-block">
+                                    <Button
+                                        size="lg"
+                                        className="bg-primary hover:bg-primary/90 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                                    >
+                                        {/* Shimmer Effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                                        <span className="relative z-10 flex items-center gap-2 md:gap-3">
+                                            <Trophy className="w-4 h-4 md:w-5 md:h-5" />
+                                            <span className="hidden sm:inline">
+                                                {language === "pt" ? "Ver Todas as Conquistas" : "See All Achievements"}
+                                            </span>
+                                            <span className="sm:hidden">{language === "pt" ? "Ver Conquistas" : "See Achievements"}</span>
+                                            <motion.div
+                                                animate={{ x: [0, 3, 0] }}
+                                                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                                            >
+                                                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                                            </motion.div>
+                                        </span>
+                                    </Button>
+                                </motion.div>
+                            </Link>
+
+                            {/* Stats Preview */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8 max-w-md mx-auto">
+                                <div className="text-center">
+                                    <div className="text-xl md:text-2xl font-bold text-primary">15+</div>
+                                    <div className="text-xs text-muted-foreground">
+                                        {language === "pt" ? "Certificações" : "Certifications"}
+                                    </div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-xl md:text-2xl font-bold text-primary">8+</div>
+                                    <div className="text-xs text-muted-foreground">{language === "pt" ? "Prêmios" : "Awards"}</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-xl md:text-2xl font-bold text-primary">5+</div>
+                                    <div className="text-xs text-muted-foreground">
+                                        {language === "pt" ? "Competições" : "Competitions"}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
 
             {/* Background decoration */}
