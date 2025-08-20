@@ -305,6 +305,19 @@ export default function AchievementsPage() {
         },
         {
             id: 17,
+            titlePt: "TJR Nacional",
+            titleEn: "TJR National",
+            datePt: "Dezembro 2019",
+            dateEn: "December 2019",
+            descriptionPt: "A equipe Pequeno Gigante Android conquistou o 2º lugar na categoria Viagem ao Centro da Terra.",
+            descriptionEn: "The Android team won 2nd place in the Journey to the Center of the Earth category.",
+            image: "/achievements/robotics/tjr-nacional-2019.jpg",
+            local: "São Paulo - SP",
+            team: "Pequeno Gigante Android",
+            link: "https://www.facebook.com/photo/?fbid=10206295353938194&set=pb.1696644253.-2207520000"
+        },
+        {
+            id: 18,
             titlePt: "OBR Nacional",
             titleEn: "OBR National",
             datePt: "Outubro 2019",
@@ -314,10 +327,10 @@ export default function AchievementsPage() {
             image: "/achievements/robotics/obr-nacional-2019.jpg",
             local: "Rio Grande - RS",
             team: "Pequeno Gigante Skydroid",
-            link: "https://www.facebook.com/photo?fbid=381291272753150&set=pcb.381294216086189&locale=pt_BR"
+            link: "https://www.facebook.com/PiraiPequenoGigante/posts/pfbid036idZdURcDMarMr5EYKhWv29QojMxbw99iDe52kRpQyptkhB93T4sn2mexjhjauhLl?locale=pt_BR"
         },
         {
-            id: 18,
+            id: 19,
             titlePt: "OBR Estadual",
             titleEn: "OBR State",
             datePt: "Setembro 2019",
@@ -327,10 +340,10 @@ export default function AchievementsPage() {
             image: "/achievements/robotics/obr-estadual-2019.jpg",
             local: "Petrópolis - RJ",
             team: "Pequeno Gigante Skydroid",
-            link: "https://www.facebook.com/photo/?fbid=360948751454069&set=pb.100057427780111.-2207520000&locale=pt_BR"
+            link: "https://www.facebook.com/PiraiPequenoGigante/posts/pfbid02PeydRhAYLARs2F94ytMazgFDS9oxR3MvDAdVjZ5DPaMrgwezJK9YjATugYDjA3Eml?locale=pt_BR"
         },
         {
-            id: 19,
+            id: 20,
             titlePt: "OBR Regional",
             titleEn: "OBR Regional",
             datePt: "Agosto 2019",
@@ -340,72 +353,59 @@ export default function AchievementsPage() {
             image: "/achievements/robotics/obr-regional-2019.jpg",
             local: "São Gonçalo - RJ",
             team: "Pequeno Gigante Skydroid",
-            link: "https://www.facebook.com/photo?fbid=10205881889321837&set=pcb.10205881891441890&locale=pt_BR"
-        },
-        {
-            id: 20,
-            titlePt: "TJR Nacional",
-            titleEn: "TJR National",
-            datePt: "2019",
-            dateEn: "2019",
-            descriptionPt: "Modalidade: Viagem ao Centro da Terra - 2º Lugar - Classificação",
-            descriptionEn: "Category: Journey to the Center of the Earth - 2nd Place - Classification",
-            image: "/achievements/robotics/tjr-2019-nacional.jfif",
-            local: "São Paulo - SP",
-            team: "Smart Lego",
-            link: ""
+            link: "https://www.facebook.com/osni.silva.16/posts/pfbid0sxWqqDV85zDGw8NbqaecNWZEHnu2KivNZWtpWjvKUPCQEEvPatR2LzMJbmevhaWHl?locale=pt_BR"
         },
         {
             id: 21,
-            titlePt: "TJR Regional/Estadual",
-            titleEn: "TJR Regional/State",
-            datePt: "2019",
-            dateEn: "2019",
-            descriptionPt: "Modalidade: Viagem ao Centro da Terra - 1º Lugar - Classificação",
-            descriptionEn: "Category: Journey to the Center of the Earth - 1st Place - Classification",
-            image: "/achievements/robotics/tjr-2019-regional.jfif",
+            titlePt: "TJR Regional",
+            titleEn: "TJR Regional",
+            datePt: "Julho 2019",
+            dateEn: "July 2019",
+            descriptionPt: "A equipe Pequeno Gigante Android conquistou 1º Lugar na categoria Viagem ao Centro da Terra, se classificando para a etapa nacional.",
+            descriptionEn: "The Pequeno Gigante Android team won 1st Place in the Journey to the Center of the Earth category, qualifying for the national stage.",
+            image: "/achievements/robotics/tjr-regional-2019.jpg",
             local: "Volta Redonda - RJ",
-            team: "Smart Lego",
-            link: ""
+            team: "Pequeno Gigante Android",
+            link: "https://www.facebook.com/osni.silva.16/posts/pfbid02VRAEoreu991RgLVLH8U6xxdsWJsrHzU9DvUXmg8ZM24t96QFRdtL89ECSfGkr8v3l"
         },
         {
             id: 22,
-            titlePt: "ITR Internacional",
-            titleEn: "ITR International",
-            datePt: "2019",
-            dateEn: "2019",
-            descriptionPt: "Modalidade: Viagem ao Centro da Terra - 1º Lugar (ETMAX) | Modalidade: Cabo de Guerra - 2º Lugar (ETMAX)",
-            descriptionEn: "Category: Journey to the Center of the Earth - 1st Place (ETMAX) | Category: Tug of War - 2nd Place (ETMAX)",
-            image: "/achievements/robotics/itr-2019-internacional.jfif",
+            titlePt: "ITR",
+            titleEn: "ITR",
+            datePt: "Junho 2019",
+            dateEn: "June 2019",
+            descriptionPt: "A equipe Android conquistou 1º Lugar na categoria Viagem ao Centro da Terra, e a equipe SkyDroid conquistou 2º Lugar na categoria Cabo de Guerra.",
+            descriptionEn: "The Android team won 1st Place in the Journey to the Center of the Earth category, and the SkyDroid team won 2nd Place in the Tug of War category.",
+            image: "/achievements/robotics/itr-2019.jpg",
             local: "São Luís - MA",
-            team: "Smart Lego",
-            link: ""
+            team: "Pequeno Gigante Android/SkyDroid",
+            link: "https://www.facebook.com/osni.silva.16/posts/pfbid02fu2KVuWUSvodAsMnhJTcyX49WP9ENEqMyY6FiuPP8cbJkuaiEckJA6CTSXXKvaSwl"
         },
         {
             id: 23,
             titlePt: "TJR Nacional",
             titleEn: "TJR National",
-            datePt: "2018",
-            dateEn: "2018",
-            descriptionPt: "Modalidade: Viagem ao Centro da Terra - 1º Lugar - Classificação",
-            descriptionEn: "Category: Journey to the Center of the Earth - 1st Place - Classification",
-            image: "/achievements/robotics/tjr-2018-nacional.jfif",
+            datePt: "Novembro/Dezembro 2018",
+            dateEn: "November/December 2018",
+            descriptionPt: "A equipe Android conquistou 1º Lugar na categoria Viagem ao Centro da Terra, se classificando para a etapa internacional.",
+            descriptionEn: "The Android team won 1st Place in the Journey to the Center of the Earth category, qualifying for the international stage.",
+            image: "/achievements/robotics/tjr-nacional-2018.jpg",
             local: "João Pessoa - PB",
-            team: "Smart Lego",
-            link: ""
+            team: "Android",
+            link: "https://www.facebook.com/photo/?fbid=10205077555133985&set=pb.1696644253.-2207520000"
         },
         {
             id: 24,
-            titlePt: "TJR Regional/Estadual",
-            titleEn: "TJR Regional/State",
-            datePt: "2018",
-            dateEn: "2018",
-            descriptionPt: "Modalidade: Viagem ao Centro da Terra - 1º Lugar - Classificação",
-            descriptionEn: "Category: Journey to the Center of the Earth - 1st Place - Classification",
-            image: "/achievements/robotics/tjr-2018-regional.jfif",
+            titlePt: "TJR Regional",
+            titleEn: "TJR Regional",
+            datePt: "Novembro 2018",
+            dateEn: "November 2018",
+            descriptionPt: "A equipe Android conquistou 1º Lugar na categoria Viagem ao Centro da Terra, se classificando para a etapa nacional.",
+            descriptionEn: "The Android team won 1st Place in the Journey to the Center of the Earth category, qualifying for the national stage.",
+            image: "/achievements/robotics/tjr-regional-2018.jpg",
             local: "Botafogo - RJ",
-            team: "Smart Lego",
-            link: ""
+            team: "Android",
+            link: "https://www.facebook.com/osni.silva.16/posts/pfbid02AYDgougVJvUiCRmjfWEBtzfEciYgPKQ2B9HUa4CzuCGMFpKG52QSWycvQvV9omBQl"
         },
         {
             id: 25,
@@ -415,7 +415,7 @@ export default function AchievementsPage() {
             dateEn: "2018",
             descriptionPt: "5º Lugar",
             descriptionEn: "5th Place",
-            image: "/achievements/robotics/obr-2018-estadual.jfif",
+            image: "/achievements/robotics/obr-estadual-2018.jpg",
             local: "Volta Redonda - RJ",
             team: "Smart Lego",
             link: ""
@@ -424,14 +424,14 @@ export default function AchievementsPage() {
             id: 26,
             titlePt: "OBR Regional",
             titleEn: "OBR Regional",
-            datePt: "2018",
-            dateEn: "2018",
-            descriptionPt: "7º Lugar - Classificação",
-            descriptionEn: "7th Place - Classification",
-            image: "/achievements/robotics/obr-2018-regional.jfif",
+            datePt: "Setembro 2018",
+            dateEn: "September 2018",
+            descriptionPt: "A equipe Android conquistou 7º Lugar, se classificando para a etapa estadual.",
+            descriptionEn: "The Android team won 7th Place, qualifying for the state stage.",
+            image: "/achievements/robotics/obr-regional-2018.jpg",
             local: "Volta Redonda - RJ",
-            team: "Smart Lego",
-            link: ""
+            team: "Android",
+            link: "https://www.facebook.com/osni.silva.16/posts/pfbid034Kc9KUeWQJqcE9PN1rq7EDckeFgS5vy6Gngy3zyJmRQe1nAJxm4kLTULZkyqKFvTl"
         }
 
     ]
