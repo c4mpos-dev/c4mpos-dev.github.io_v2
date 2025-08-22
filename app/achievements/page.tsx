@@ -8,14 +8,19 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ExternalLink, Group, MapPin, Users } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMobile } from "@/hooks/use-mobile";
+import { useTheme } from "next-themes";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function AchievementsPage() {
-    const [language, setLanguage] = useState<"pt" | "en">("pt")
-    const isMobile = useMobile()
+    const [language, setLanguage] = useState<"pt" | "en">("pt");
+    const [mounted, setMounted] = useState(false);
+    const { resolvedTheme } = useTheme();
+    const isMobile = useMobile();
 
     // Scroll to top on page load
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
+        setMounted(true);
     }, [])
 
     type Achievement = {
@@ -31,6 +36,12 @@ export default function AchievementsPage() {
         link?: string;
         team?: string;
     };
+
+    const toggleLanguage = () => {
+      setLanguage(language === "pt" ? "en" : "pt")
+    }
+
+    if (!mounted) return null
 
     const generalAchievements: Achievement[] = [
         {
@@ -275,7 +286,7 @@ export default function AchievementsPage() {
             image: "/achievements/robotics/OBRVS-estadual-2021.png",
             local: "Virtual",
             team: "Pequeno Gigante Skydroid",
-            link: "https://www.instagram.com/p/CSZB1IHFcpA/"
+            link: "https://globoplay.globo.com/v/9773030/"
         },
         {
             id: 15,
@@ -411,14 +422,14 @@ export default function AchievementsPage() {
             id: 25,
             titlePt: "OBR Estadual",
             titleEn: "OBR State",
-            datePt: "2018",
-            dateEn: "2018",
-            descriptionPt: "5º Lugar",
-            descriptionEn: "5th Place",
+            datePt: "Setembro 2018",
+            dateEn: "September 2018",
+            descriptionPt: "Em nosso primeiro ano na OBR, conquistamos 5º Lugar estadual.",
+            descriptionEn: "In our first year at OBR, we achieved 5th place at the state level.",
             image: "/achievements/robotics/obr-estadual-2018.jpg",
             local: "Volta Redonda - RJ",
-            team: "Smart Lego",
-            link: ""
+            team: "Android",
+            link: "https://www.facebook.com/osni.silva.16/posts/pfbid04CwuLo3gUMMyYGpFx5Bjm5b2NbBjLYMAR8YMeGgMmxYq5aaVa174tTgAC8mTdCu4l?locale=pt_BR"
         },
         {
             id: 26,
@@ -426,8 +437,8 @@ export default function AchievementsPage() {
             titleEn: "OBR Regional",
             datePt: "Setembro 2018",
             dateEn: "September 2018",
-            descriptionPt: "A equipe Android conquistou 7º Lugar, se classificando para a etapa estadual.",
-            descriptionEn: "The Android team won 7th Place, qualifying for the state stage.",
+            descriptionPt: "Em minha primeira competição, minha equipe, Android, conquistou 7º Lugar, se classificando para a etapa estadual.",
+            descriptionEn: "In my first competition, my team, Android, achieved 7th place, qualifying for the state stage.",
             image: "/achievements/robotics/obr-regional-2018.jpg",
             local: "Volta Redonda - RJ",
             team: "Android",
@@ -440,24 +451,12 @@ export default function AchievementsPage() {
   const roboticsStats = {
     pt: {
       torneios: roboticsAchievements.length,
-      internacionais: roboticsAchievements.filter((a) => a.titlePt.toLowerCase().includes("internacional")).length,
-      nacionais: roboticsAchievements.filter(
-        (a) => a.titlePt.toLowerCase().includes("nacional") || a.titlePt.toLowerCase().includes("brasileira"),
-      ).length,
-      regionais: roboticsAchievements.filter((a) => a.titlePt.toLowerCase().includes("regional")).length,
+      premios: 20
     },
     en: {
       tournaments: roboticsAchievements.length,
-      international: roboticsAchievements.filter((a) => a.titleEn.toLowerCase().includes("international")).length,
-      national: roboticsAchievements.filter(
-        (a) => a.titleEn.toLowerCase().includes("national") || a.titleEn.toLowerCase().includes("brazilian"),
-      ).length,
-      regional: roboticsAchievements.filter((a) => a.titleEn.toLowerCase().includes("regional")).length,
+      awards: 20
     },
-  }
-
-  const toggleLanguage = () => {
-    setLanguage(language === "pt" ? "en" : "pt")
   }
 
   // Renderiza a linha do tempo para desktop
@@ -590,83 +589,104 @@ export default function AchievementsPage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
-        <div className="flex justify-between items-center mb-8">
-          <Link href="/">
-            <Button variant="outline" className="flex items-center gap-2">
-              <ChevronLeft size={16} />
-              {language === "pt" ? "Voltar" : "Back"}
-            </Button>
-          </Link>
-          <Button variant="outline" onClick={toggleLanguage}>
-            {language === "pt" ? "EN" : "PT-BR"}
-          </Button>
-        </div>
+        <header className="w-full bg-background/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+            <Link href="/" className="text-2xl font-bold text-primary">
+              <span className="text-primary">C</span>C
+            </Link>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            {language === "pt" ? "Conquistas e Certificações" : "Achievements and Certifications"}
-          </h1>
-          <div className="w-20 h-1 bg-primary mx-auto"></div>
-        </motion.div>
-
-        <Tabs defaultValue="general" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-            <TabsTrigger value="general">
-              {language === "pt" ? "Conquistas Gerais" : "General Achievements"}
-            </TabsTrigger>
-            <TabsTrigger value="robotics">{language === "pt" ? "Robótica" : "Robotics"}</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="general">
-            {isMobile ? renderMobileTimeline(generalAchievements) : renderDesktopTimeline(generalAchievements)}
-          </TabsContent>
-
-          <TabsContent value="robotics">
-            {/* Resumo de conquistas em robótica */}
-            <div className="bg-card p-6 rounded-lg shadow-lg border border-primary/20 mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-center">
-                {language === "pt" ? "Resumo de Conquistas em Robótica" : "Robotics Achievements Summary"}
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="bg-muted p-4 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {language === "pt" ? roboticsStats.pt.torneios : roboticsStats.en.tournaments}
-                  </div>
-                  <div className="text-sm">{language === "pt" ? "Torneios" : "Tournaments"}</div>
-                </div>
-                <div className="bg-muted p-4 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {language === "pt" ? roboticsStats.pt.internacionais : roboticsStats.en.international}
-                  </div>
-                  <div className="text-sm">
-                    {language === "pt" ? "Torneios Internacionais" : "International Tournaments"}
-                  </div>
-                </div>
-                <div className="bg-muted p-4 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {language === "pt" ? roboticsStats.pt.nacionais : roboticsStats.en.national}
-                  </div>
-                  <div className="text-sm">
-                    {language === "pt" ? "Campeonatos Nacionais" : "National Championships"}
-                  </div>
-                </div>
-                <div className="bg-muted p-4 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {language === "pt" ? roboticsStats.pt.regionais : roboticsStats.en.regional}
-                  </div>
-                  <div className="text-sm">{language === "pt" ? "Competições Regionais" : "Regional Competitions"}</div>
-                </div>
-              </div>
+            <div className="flex items-center space-x-4">
+              <Link href="/">
+                <Button variant="outline" className="flex items-center gap-2 bg-transparent">
+                  <ChevronLeft size={16} />
+                  {language === "pt" ? "Voltar" : "Back"}
+                </Button>
+              </Link>
+              <ThemeToggle />
+              <Button variant="outline" onClick={toggleLanguage} className="min-w-[80px] bg-transparent">
+                {language === "pt" ? "EN" : "PT-BR"}
+              </Button>
             </div>
+          </div>
+        </header>
 
-            {isMobile ? renderMobileTimeline(roboticsAchievements) : renderDesktopTimeline(roboticsAchievements)}
-          </TabsContent>
-        </Tabs>
+        <div className="pt-20">
+        <div className="container mx-auto px-4 py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+              {language === "pt" ? "Conquistas e Certificações" : "Achievements and Certifications"}
+            </h1>
+            <div className="w-20 h-1 bg-primary mx-auto"></div>
+          </motion.div>
+
+          <Tabs defaultValue="robotics" className="w-full">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 border border-border">
+              <TabsTrigger value="robotics">{language === "pt" ? "Robótica" : "Robotics"}</TabsTrigger>
+              <TabsTrigger value="general">
+                {language === "pt" ? "Conquistas Gerais" : "General Achievements"}
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="general">
+              {isMobile ? renderMobileTimeline(generalAchievements) : renderDesktopTimeline(generalAchievements)}
+            </TabsContent>
+
+            <TabsContent value="robotics">
+              {/* Resumo de conquistas em robótica */}
+              <div className="bg-card p-6 rounded-lg shadow-lg border border-primary/20 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-muted p-6 rounded-lg text-center border border-border">
+                    <div className="text-4xl font-bold text-primary mb-2">
+                      {language === "pt" ? roboticsStats.pt.torneios : roboticsStats.en.tournaments}
+                    </div>
+                    <div className="text-lg">
+                      {language === "pt" ? "Torneios Participados" : "Tournaments Participated"}
+                    </div>
+                  </div>
+                  <div className="bg-muted p-6 rounded-lg text-center border border-border">
+                    <div className="text-4xl font-bold text-primary mb-2">
+                      {language === "pt" ? roboticsStats.pt.premios : roboticsStats.en.awards}
+                    </div>
+                    <div className="text-lg">{language === "pt" ? "Prêmios Conquistados" : "Awards Won"}</div>
+                  </div>
+                </div>
+
+                {/* Seção sobre equipes */}
+                <Link href="/teams">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">
+                          {language === "pt" ? "Minhas Equipes de Robótica" : "My Robotics Teams"}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {language === "pt"
+                            ? "Conheça as equipes que fizeram parte da minha jornada na robótica"
+                            : "Meet the teams that were part of my robotics journey"}
+                        </p>
+                      </div>
+                      <div className="text-primary">
+                        <ChevronLeft className="w-6 h-6 rotate-180" />
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              </div>
+
+              {isMobile ? renderMobileTimeline(roboticsAchievements) : renderDesktopTimeline(roboticsAchievements)}
+            </TabsContent>
+          </Tabs>
+        </div>
+      </div>
       </div>
     </div>
   )
