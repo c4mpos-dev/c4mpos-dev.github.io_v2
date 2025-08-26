@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ExternalLink, Group, MapPin, Users } from "lucide-react";
+import { ChevronLeft, ExternalLink, List, MapPin, Users } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMobile } from "@/hooks/use-mobile";
-import { useTheme } from "next-themes";
 import { ThemeToggle } from "@/components/theme-toggle";
+import Footer from "@/components/footer";
 
 export default function AchievementsPage() {
     const [language, setLanguage] = useState<"pt" | "en">("pt");
     const [mounted, setMounted] = useState(false);
-    const { resolvedTheme } = useTheme();
+    const [showLegend, setShowLegend] = useState(false);
     const isMobile = useMobile();
 
     // Scroll to top on page load
@@ -447,6 +447,45 @@ export default function AchievementsPage() {
 
     ]
 
+    const competitions = [
+      {
+        code: "FRC",
+        pt: "First Robotics Competition",
+        en: "First Robotics Competition",
+      },
+      {
+        code: "FLL",
+        pt: "First Lego League",
+        en: "First Lego League",
+      },
+      {
+        code: "OBR",
+        pt: "Olimpíada Brasileira de Robótica",
+        en: "Brazilian Robotics Olympiad",
+      },
+      {
+        code: "TJR",
+        pt: "Torneio Juvenil de Robótica",
+        en: "Youth Robotics Tournament",
+      },
+      {
+        code: "ITR",
+        pt: "International Tournament of Robots",
+        en: "International Tournament of Robots",
+      },
+      {
+        code: "TBR",
+        pt: "Torneio Brasileiro de Robótica",
+        en: "Brazilian Robotics Tournament",
+      },
+      {
+        code: "FIRA",
+        pt: "Federation of International Robot-soccer Association",
+        en: "Federation of International Robot-soccer Association",
+      }
+    ];
+
+
   // Contagem de campeonatos por categoria
   const roboticsStats = {
     pt: {
@@ -610,7 +649,7 @@ export default function AchievementsPage() {
           </div>
         </header>
 
-        <div className="pt-20">
+        <div className="pt-10">
         <div className="container mx-auto px-4 py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -625,7 +664,7 @@ export default function AchievementsPage() {
           </motion.div>
 
           <Tabs defaultValue="robotics" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 border border-border">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
               <TabsTrigger value="robotics">{language === "pt" ? "Robótica" : "Robotics"}</TabsTrigger>
               <TabsTrigger value="general">
                 {language === "pt" ? "Conquistas Gerais" : "General Achievements"}
@@ -640,7 +679,7 @@ export default function AchievementsPage() {
               {/* Resumo de conquistas em robótica */}
               <div className="bg-card p-6 rounded-lg shadow-lg border border-primary/20 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-muted p-6 rounded-lg text-center border border-border">
+                  <div className="bg-muted p-6 rounded-lg text-center">
                     <div className="text-4xl font-bold text-primary mb-2">
                       {language === "pt" ? roboticsStats.pt.torneios : roboticsStats.en.tournaments}
                     </div>
@@ -648,13 +687,58 @@ export default function AchievementsPage() {
                       {language === "pt" ? "Torneios Participados" : "Tournaments Participated"}
                     </div>
                   </div>
-                  <div className="bg-muted p-6 rounded-lg text-center border border-border">
+                  <div className="bg-muted p-6 rounded-lg text-center">
                     <div className="text-4xl font-bold text-primary mb-2">
                       {language === "pt" ? roboticsStats.pt.premios : roboticsStats.en.awards}
                     </div>
                     <div className="text-lg">{language === "pt" ? "Prêmios Conquistados" : "Awards Won"}</div>
                   </div>
                 </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mb-8"
+                >
+                  <Button
+                    variant="outline"
+                    onClick={() => setShowLegend(!showLegend)}
+                    className="w-full justify-between bg-card hover:bg-muted transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <List className="text-primary" />
+                      {language === "pt" ? "Legenda das Competições" : "Competition Legend"}
+                    </span>
+                    <motion.div animate={{ rotate: showLegend ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                      <ChevronLeft className="w-4 h-4 rotate-90" />
+                    </motion.div>
+                  </Button>
+
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      height: showLegend ? "auto" : 0,
+                      opacity: showLegend ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="bg-card p-6 rounded-b-lg border border-t-0 border-border">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                        {competitions.map((comp) => (
+                          <div key={comp.code} className="flex items-center gap-2">
+                            <span className="font-bold text-primary min-w-8">{comp.code}</span>
+                            <span className="text-muted-foreground"> - </span>
+                            <span className="text-muted-foreground">
+                              {language === "pt" ? comp.pt : comp.en}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
 
                 {/* Seção sobre equipes */}
                 <Link href="/teams">
@@ -688,6 +772,8 @@ export default function AchievementsPage() {
         </div>
       </div>
       </div>
+
+      <Footer language={language} className="bg-muted" />
     </div>
   )
 }

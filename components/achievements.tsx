@@ -217,8 +217,8 @@ export function Achievements({ language }: AchievementsProps) {
 
                             <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-lg max-w-2xl mx-auto px-2">
                                 {language === "pt"
-                                ? "Descubra minha jornada completa com mais de 15 certificações, prêmios e conquistas em robótica e tecnologia!"
-                                : "Discover my complete journey with over 15 certifications, awards and achievements in robotics and technology!"}
+                                ? "Descubra minha jornada completa com prêmios e conquistas em robótica e tecnologia!"
+                                : "Discover my complete journey with awards and achievements in robotics and technology!"}
                             </p>
 
                             <Link href="/achievements">
@@ -248,7 +248,7 @@ export function Achievements({ language }: AchievementsProps) {
                             </Link>
 
                             {/* Stats Preview */}
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8 max-w-md mx-auto">
+                            <div className="grid grid-cols-2 gap-3 mt-6 md:mt-8 max-w-md mx-auto">
                                 <div className="text-center">
                                     <div className="text-xl md:text-2xl font-bold text-primary">15+</div>
                                     <div className="text-xs text-muted-foreground">
@@ -256,11 +256,7 @@ export function Achievements({ language }: AchievementsProps) {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-primary">8+</div>
-                                    <div className="text-xs text-muted-foreground">{language === "pt" ? "Prêmios" : "Awards"}</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-primary">5+</div>
+                                    <div className="text-xl md:text-2xl font-bold text-primary">25+</div>
                                     <div className="text-xs text-muted-foreground">
                                         {language === "pt" ? "Competições" : "Competitions"}
                                     </div>

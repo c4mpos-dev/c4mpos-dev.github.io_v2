@@ -3,13 +3,14 @@ import Link from "next/link"
 
 interface FooterProps {
     language: "pt" | "en"
+    className?: string
 }
 
-const Footer = ({ language }: FooterProps) => {
+const Footer = ({ language, className }: FooterProps) => {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="bg-background py-10 relative overflow-hidden">
+        <footer className={`bg-background py-10 relative overflow-hidden ${className}`}>
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-3 gap-8">
                     <div>
