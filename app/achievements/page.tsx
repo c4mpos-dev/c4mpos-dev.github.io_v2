@@ -672,6 +672,46 @@ export default function AchievementsPage() {
             </TabsList>
 
             <TabsContent value="general">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mb-12"
+              >
+                <a
+                  href="https://www.linkedin.com/in/cau%C3%A3-campos/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <i className="fa-brands fa-linkedin text-primary text-xl"></i>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold mb-1">
+                            {language === "pt" ? "Ver Todos os Certificados" : "View All Certificates"}
+                          </h3>
+                          <p className="text-muted-foreground text-sm">
+                            {language === "pt"
+                              ? "Clique aqui para ver meus certificados em programação"
+                              : "Click here to see my programming certificates"
+                            }
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-primary">
+                        <ExternalLink className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </motion.div>
+                </a>
+              </motion.div>
               {isMobile ? renderMobileTimeline(generalAchievements) : renderDesktopTimeline(generalAchievements)}
             </TabsContent>
 
