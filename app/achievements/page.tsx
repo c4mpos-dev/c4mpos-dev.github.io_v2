@@ -38,7 +38,7 @@ export default function AchievementsPage() {
     };
 
     const toggleLanguage = () => {
-      setLanguage(language === "pt" ? "en" : "pt")
+        setLanguage(language === "pt" ? "en" : "pt")
     }
 
     if (!mounted) return null
@@ -54,39 +54,32 @@ export default function AchievementsPage() {
             descriptionEn: "INTLOG won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
             image: "/achievements/geral/hackathon-construtech-2024.jpg",
             local: "Santa Rita do Sapucaí - MG",
+            link: "https://inatel.br/noticias/hackathon-premia-melhores-solucoes-para-mercado-da-construcao-civil"
         },
         {
             id: 2,
-            titlePt: "Prêmio de Inovação Tecnológica",
-            titleEn: "Technological Innovation Award",
-            datePt: "Junho 2022",
-            dateEn: "June 2022",
-            descriptionPt: "Reconhecimento por desenvolvimento de solução inovadora para o setor financeiro.",
-            descriptionEn: "Recognition for developing an innovative solution for the financial sector.",
-            image: "/placeholder.svg?height=300&width=400",
+            titlePt: "IronCup 2024",
+            titleEn: "IronCup 2024",
+            datePt: "Março 2024",
+            dateEn: "March 2024",
+            descriptionPt: "Participei como Staff do evento, na categoria Combate.",
+            descriptionEn: "I participated as staff for the event, in the Combat category.",
+            image: "/achievements/geral/iron-cup-2024.png",
+            local: "Santa Rita do Sapucaí - MG",
         },
         {
             id: 3,
-            titlePt: "Certificação AWS Developer",
-            titleEn: "AWS Developer Certification",
-            datePt: "Março 2022",
-            dateEn: "March 2022",
-            descriptionPt: "Certificação oficial da Amazon Web Services para desenvolvimento em nuvem.",
-            descriptionEn: "Official Amazon Web Services certification for cloud development.",
-            image: "/placeholder.svg?height=300&width=400",
+            titlePt: "Hacking.rio 2021",
+            titleEn: "Hacking.rio 2021",
+            datePt: "Novembro 2021",
+            dateEn: "November 2021",
+            descriptionPt: "A equipe SmartHack ficou com o prêmio 'Melhor Código' da competição. Recebemos uma moção de louvor da prefeitura de Resende.",
+            descriptionEn: "The SmartHack team won the 'Best Code' award at the competition. We received a letter of praise from the city hall of Resende.",
+            image: "/achievements/geral/hacking.rio.jpg",
+            local: "Virtual"
         },
         {
             id: 4,
-            titlePt: "Hackathon Fintech - 1º Lugar",
-            titleEn: "Fintech Hackathon - 1st Place",
-            datePt: "Outubro 2021",
-            dateEn: "October 2021",
-            descriptionPt: "Vencedor do hackathon nacional com solução inovadora para inclusão financeira.",
-            descriptionEn: "Winner of the national hackathon with an innovative solution for financial inclusion.",
-            image: "/placeholder.svg?height=300&width=400",
-        },
-        {
-            id: 5,
             titlePt: "OBMEP - Menção Honrosa",
             titleEn: "OBMEP - Honorable Mention",
             datePt: "Dezembro 2019",
@@ -97,7 +90,7 @@ export default function AchievementsPage() {
             local: "Piraí - RJ"
         },
         {
-            id: 6,
+            id: 5,
             titlePt: "Moção de Aplausos",
             titleEn: "Motion of Applause",
             datePt: "Setembro 2018",
@@ -108,7 +101,7 @@ export default function AchievementsPage() {
             local: "Piraí - RJ"
         },
         {
-            id: 7,
+            id: 6,
             titlePt: "OMERJ - Menção Honrosa",
             titleEn: "OMERJ - Honorable Mention",
             datePt: "Novembro 2017",
@@ -116,7 +109,8 @@ export default function AchievementsPage() {
             descriptionPt: "Menção honrosa pelo desempenho na prova da OMERJ (Olimpíada de Matemática do Estado do Rio de Janeiro).",
             descriptionEn: "Honorable mention for performance in the OMERJ (Mathematics Olympiad of the State of Rio de Janeiro) exam.",
             image: "/achievements/geral/omerj-2017.jpg",
-            local: "Piraí - RJ"
+            local: "Piraí - RJ",
+            link: "https://www.pirai.rj.gov.br/component/k2/alunso-da-rede-muncipal-destaques-em-olimpiadas-de-conhecimento-sao-homenageados"
         },
     ]
 
@@ -499,344 +493,341 @@ export default function AchievementsPage() {
       }
     ];
 
+    const roboticsStats = {
+        pt: {
+            torneios: roboticsAchievements.length,
+            premios: 20
+        },
+        en: {
+            tournaments: roboticsAchievements.length,
+            awards: 20
+        },
+    }
 
-  // Contagem de campeonatos por categoria
-  const roboticsStats = {
-    pt: {
-      torneios: roboticsAchievements.length,
-      premios: 20
-    },
-    en: {
-      tournaments: roboticsAchievements.length,
-      awards: 20
-    },
-  }
-
-  // Renderiza a linha do tempo para desktop
-  const renderDesktopTimeline = (achievements: typeof generalAchievements) => (
-    <div className="relative">
-      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/30"></div>
-      <div className="space-y-16">
-        {achievements.map((achievement, index) => (
-          <motion.div
-            key={achievement.id}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`relative flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-8`}
-          >
-            <div className={`w-1/2 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
-              <div className="bg-card px-6 py-4 rounded-lg shadow-lg border border-border hover:border-primary/30 transition-all duration-300">
-                <div className="inline-flex gap-1 text-sm text-muted-foreground font-medium mb-2">
-                    {language === "pt" ? achievement.datePt : achievement.dateEn} -
-                    <div className="inline-flex items-center text-sm text-primary mb-2">
-                        <MapPin className="inline-block mr-0.5 h-4 w-4" />
-                        {language === "pt" ? achievement.local : achievement.local}
-                    </div>
-                </div>
-                
-                <h3 className="text-xl font-bold mb-2">
-                  {language === "pt" ? achievement.titlePt : achievement.titleEn}
-                </h3>
-                <p className="text-muted-foreground">
-                  {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
-                </p>
-
-                {achievement.team && (
-                  <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
-                    <Users className="mr-1.5 h-4 w-4" />
-                    {achievement.team}
-                  </span>
-                )}
-
-                {achievement.link && (
-                      <a
-                          href={achievement.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center mt-3 text-sm text-primary font-medium"
-                      >
-                          {language === "pt" ? "Ver Matéria" : "View Material"}
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                )}
-              </div>
-            </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center z-10">
-              <span className="text-white font-bold">{achievement.id}</span>
-            </div>
-            <div className="w-1/2">
-              <div className="relative h-72 w-full overflow-hidden rounded-lg shadow-lg">
-                <Image
-                  src={achievement.image || "/placeholder.svg"}
-                  alt={language === "pt" ? achievement.titlePt : achievement.titleEn}
-                  fill
-                  className="object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  )
-
-  // Renderiza a linha do tempo para mobile
-  const renderMobileTimeline = (achievements: typeof generalAchievements) => (
-    <div className="relative">
-      <div className="absolute left-4 top-0 bottom-0 w-1 bg-primary/30"></div>
-      <div className="space-y-12">
-        {achievements.map((achievement, index) => (
-          <motion.div
-            key={achievement.id}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative pl-12"
-          >
-            <div className="absolute left-[16px] w-8 h-8 bg-primary rounded-full flex items-center justify-center z-10 transform -translate-x-3.5">
-              <span className="text-white text-center font-bold text-sm">{achievement.id}</span>
-            </div>
-            <div className="bg-card rounded-lg shadow-lg border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden">
-              <div className="relative h-48 w-full">
-                <Image
-                  src={achievement.image || "/placeholder.svg"}
-                  alt={language === "pt" ? achievement.titlePt : achievement.titleEn}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <div className="flex gap-1 text-sm font-medium mb-2">
-                  {language === "pt" ? achievement.datePt : achievement.dateEn} -
-                  <div className="inline-flex items-center text-sm text-primary mb-2">
-                      <MapPin className="inline-block mr-0.5 h-4 w-4" />
-                      {language === "pt" ? achievement.local : achievement.local}
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold mb-1">
-                  {language === "pt" ? achievement.titlePt : achievement.titleEn}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
-                </p>
-
-                {achievement.team && (
-                  <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} justify-start`}>
-                    <Users className="mr-1.5 h-4 w-4" />
-                    {achievement.team}
-                  </span>
-                )}
-
-                {achievement.link && (
-                    <a
-                        href={achievement.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center mt-4 text-sm text-primary font-medium"
+    // Renderiza a linha do tempo para desktop
+    const renderDesktopTimeline = (achievements: typeof generalAchievements) => (
+        <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/30"></div>
+            <div className="space-y-16">
+                {achievements.map((achievement, index) => (
+                    <motion.div
+                        key={achievement.id}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className={`relative flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-8`}
                     >
-                        {language === "pt" ? "Ver Matéria" : "View Material"}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                    </a>
-                )}
-                
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  )
+                        <div className={`w-1/2 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+                            <div className="bg-card px-6 py-4 rounded-lg shadow-lg border border-border hover:border-primary/30 transition-all duration-300">
+                                <div className="inline-flex gap-1 text-sm text-muted-foreground font-medium mb-2">
+                                    {language === "pt" ? achievement.datePt : achievement.dateEn} -
+                                    <div className="inline-flex items-center text-sm text-primary mb-2">
+                                        <MapPin className="inline-block mr-0.5 h-4 w-4" />
+                                        {language === "pt" ? achievement.local : achievement.local}
+                                    </div>
+                                </div>
+                                
+                                <h3 className="text-xl font-bold mb-2">
+                                    {language === "pt" ? achievement.titlePt : achievement.titleEn}
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
+                                </p>
 
-  return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12">
-        <header className="w-full bg-background/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold text-primary">
-              <span className="text-primary">C</span>C
-            </Link>
+                                {achievement.team && (
+                                    <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
+                                        <Users className="mr-1.5 h-4 w-4" />
+                                        {achievement.team}
+                                    </span>
+                                )}
 
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <Button variant="outline" className="flex items-center gap-2 bg-transparent">
-                  <ChevronLeft size={16} />
-                  {language === "pt" ? "Voltar" : "Back"}
-                </Button>
-              </Link>
-              <ThemeToggle />
-              <Button variant="outline" onClick={toggleLanguage} className="min-w-[80px] bg-transparent">
-                {language === "pt" ? "EN" : "PT-BR"}
-              </Button>
-            </div>
-          </div>
-        </header>
-
-        <div className="pt-10">
-        <div className="container mx-auto px-4 py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              {language === "pt" ? "Conquistas e Certificações" : "Achievements and Certifications"}
-            </h1>
-            <div className="w-20 h-1 bg-primary mx-auto"></div>
-          </motion.div>
-
-          <Tabs defaultValue="robotics" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-              <TabsTrigger value="robotics">{language === "pt" ? "Robótica" : "Robotics"}</TabsTrigger>
-              <TabsTrigger value="general">
-                {language === "pt" ? "Conquistas Gerais" : "General Achievements"}
-              </TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="general">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mb-12"
-              >
-                <a
-                  href="https://www.linkedin.com/in/cau%C3%A3-campos/details/certifications/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                          <i className="fa-brands fa-linkedin text-primary text-xl"></i>
+                                {achievement.link && (
+                                    <a
+                                        href={achievement.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center mt-3 text-sm text-primary font-medium"
+                                    >
+                                        {language === "pt" ? "Ver Matéria" : "View Material"}
+                                        <ExternalLink className="ml-2 h-4 w-4" />
+                                    </a>
+                                )}
+                            </div>
                         </div>
-                        <div>
-                          <h3 className="text-xl font-bold mb-1">
-                            {language === "pt" ? "Ver Todos os Certificados" : "View All Certificates"}
-                          </h3>
-                          <p className="text-muted-foreground text-sm">
-                            {language === "pt"
-                              ? "Clique aqui para ver meus certificados em programação"
-                              : "Click here to see my programming certificates"
-                            }
-                          </p>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center z-10">
+                            <span className="text-white font-bold">{achievement.id}</span>
                         </div>
-                      </div>
-                      <div className="text-primary">
-                        <ExternalLink className="w-5 h-5" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </a>
-              </motion.div>
-              {isMobile ? renderMobileTimeline(generalAchievements) : renderDesktopTimeline(generalAchievements)}
-            </TabsContent>
-
-            <TabsContent value="robotics">
-              {/* Resumo de conquistas em robótica */}
-              <div className="bg-card p-6 rounded-lg shadow-lg border border-primary/20 mb-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-muted p-6 rounded-lg text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      {language === "pt" ? roboticsStats.pt.torneios : roboticsStats.en.tournaments}
-                    </div>
-                    <div className="text-lg">
-                      {language === "pt" ? "Torneios Participados" : "Tournaments Participated"}
-                    </div>
-                  </div>
-                  <div className="bg-muted p-6 rounded-lg text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      {language === "pt" ? roboticsStats.pt.premios : roboticsStats.en.awards}
-                    </div>
-                    <div className="text-lg">{language === "pt" ? "Prêmios Conquistados" : "Awards Won"}</div>
-                  </div>
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mb-8"
-                >
-                  <Button
-                    variant="outline"
-                    onClick={() => setShowLegend(!showLegend)}
-                    className="w-full justify-between bg-card hover:bg-muted transition-colors"
-                  >
-                    <span className="flex items-center gap-2">
-                      <List className="text-primary" />
-                      {language === "pt" ? "Legenda das Competições" : "Competition Legend"}
-                    </span>
-                    <motion.div animate={{ rotate: showLegend ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                      <ChevronLeft className="w-4 h-4 rotate-90" />
+                        <div className="w-1/2">
+                            <div className="relative h-72 w-full overflow-hidden rounded-lg shadow-lg">
+                                <Image
+                                    src={achievement.image || "/placeholder.svg"}
+                                    alt={language === "pt" ? achievement.titlePt : achievement.titleEn}
+                                    fill
+                                    className="object-cover transition-transform duration-500 hover:scale-110"
+                                />
+                            </div>
+                        </div>
                     </motion.div>
-                  </Button>
-
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: showLegend ? "auto" : 0,
-                      opacity: showLegend ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="bg-card p-6 rounded-b-lg border border-t-0 border-border">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                        {competitions.map((comp) => (
-                          <div key={comp.code} className="flex items-center gap-2">
-                            <span className="font-bold text-primary min-w-8">{comp.code}</span>
-                            <span className="text-muted-foreground"> - </span>
-                            <span className="text-muted-foreground">
-                              {language === "pt" ? comp.pt : comp.en}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* Seção sobre equipes */}
-                <Link href="/teams">
-                  <motion.div
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">
-                          {language === "pt" ? "Minhas Equipes de Robótica" : "My Robotics Teams"}
-                        </h3>
-                        <p className="text-muted-foreground">
-                          {language === "pt"
-                            ? "Conheça as equipes que fizeram parte da minha jornada na robótica"
-                            : "Meet the teams that were part of my robotics journey"}
-                        </p>
-                      </div>
-                      <div className="text-primary">
-                        <ChevronLeft className="w-6 h-6 rotate-180" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              </div>
-
-              {isMobile ? renderMobileTimeline(roboticsAchievements) : renderDesktopTimeline(roboticsAchievements)}
-            </TabsContent>
-          </Tabs>
+                ))}
+            </div>
         </div>
-      </div>
-      </div>
+    )
 
-      <Footer language={language} className="bg-muted" />
-    </div>
-  )
+    // Renderiza a linha do tempo para mobile
+    const renderMobileTimeline = (achievements: typeof generalAchievements) => (
+        <div className="relative">
+            <div className="absolute left-4 top-0 bottom-0 w-1 bg-primary/30"></div>
+            <div className="space-y-12">
+                {achievements.map((achievement, index) => (
+                    <motion.div
+                        key={achievement.id}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="relative pl-12"
+                    >
+                        <div className="absolute left-[16px] w-8 h-8 bg-primary rounded-full flex items-center justify-center z-10 transform -translate-x-3.5">
+                            <span className="text-white text-center font-bold text-sm">{achievement.id}</span>
+                        </div>
+                        <div className="bg-card rounded-lg shadow-lg border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                            <div className="relative h-48 w-full">
+                                <Image
+                                    src={achievement.image || "/placeholder.svg"}
+                                    alt={language === "pt" ? achievement.titlePt : achievement.titleEn}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="p-4">
+                                <div className="flex gap-1 text-sm font-medium mb-2">
+                                    {language === "pt" ? achievement.datePt : achievement.dateEn} -
+                                    <div className="inline-flex items-center text-sm text-primary mb-2">
+                                        <MapPin className="inline-block mr-0.5 h-4 w-4" />
+                                        {language === "pt" ? achievement.local : achievement.local}
+                                    </div>
+                                </div>
+                                <h3 className="text-lg font-bold mb-1">
+                                    {language === "pt" ? achievement.titlePt : achievement.titleEn}
+                                </h3>
+                                <p className="text-muted-foreground text-sm">
+                                    {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
+                                </p>
+
+                                {achievement.team && (
+                                    <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} justify-start`}>
+                                        <Users className="mr-1.5 h-4 w-4" />
+                                        {achievement.team}
+                                    </span>
+                                )}
+
+                                {achievement.link && (
+                                    <a
+                                        href={achievement.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center mt-4 text-sm text-primary font-medium"
+                                    >
+                                        {language === "pt" ? "Ver Matéria" : "View Material"}
+                                        <ExternalLink className="ml-2 h-4 w-4" />
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    )
+
+    return (
+        <div className="min-h-screen bg-background">
+            <div className="container mx-auto px-4 py-12">
+                <header className="w-full bg-background/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+                    <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                        <Link href="/" className="text-2xl font-bold text-primary">
+                            <span className="text-primary">C</span>C
+                        </Link>
+
+                        <div className="flex items-center space-x-4">
+                            <Link href="/">
+                                <Button variant="outline" className="flex items-center gap-2 bg-transparent">
+                                    <ChevronLeft size={16} />
+                                    {language === "pt" ? "Voltar" : "Back"}
+                                </Button>
+                            </Link>
+                            <ThemeToggle />
+                            <Button variant="outline" onClick={toggleLanguage} className="min-w-[80px] bg-transparent">
+                                {language === "pt" ? "EN" : "PT-BR"}
+                            </Button>
+                        </div>
+                    </div>
+                </header>
+
+                <div className="pt-10">
+                    <div className="container mx-auto px-4 py-12">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="text-center mb-12"
+                        >
+                            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+                                {language === "pt" ? "Conquistas e Certificações" : "Achievements and Certifications"}
+                            </h1>
+                            <div className="w-20 h-1 bg-primary mx-auto"></div>
+                        </motion.div>
+
+                        <Tabs defaultValue="robotics" className="w-full">
+                            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
+                                <TabsTrigger value="robotics">{language === "pt" ? "Robótica" : "Robotics"}</TabsTrigger>
+                                <TabsTrigger value="general">
+                                    {language === "pt" ? "Conquistas Gerais" : "General Achievements"}
+                                </TabsTrigger>
+                            </TabsList>
+
+                            <TabsContent value="general">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    className="mb-12"
+                                >
+                                    <a
+                                        href="https://www.linkedin.com/in/cau%C3%A3-campos/details/certifications/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <motion.div
+                                            whileHover={{ scale: 1.02, y: -2 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+                                        >
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                                                        <i className="fa-brands fa-linkedin text-primary text-xl"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="text-xl font-bold mb-1">
+                                                            {language === "pt" ? "Ver Todos os Certificados" : "View All Certificates"}
+                                                        </h3>
+                                                        <p className="text-muted-foreground text-sm">
+                                                            {language === "pt"
+                                                                ? "Clique aqui para ver meus certificados em programação"
+                                                                : "Click here to see my programming certificates"
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="text-primary">
+                                                    <ExternalLink className="w-5 h-5" />
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    </a>
+                                </motion.div>
+                                {isMobile ? renderMobileTimeline(generalAchievements) : renderDesktopTimeline(generalAchievements)}
+                            </TabsContent>
+
+                            <TabsContent value="robotics">
+                                {/* Resumo de conquistas em robótica */}
+                                <div className="bg-card p-6 rounded-lg shadow-lg border border-primary/20 mb-12">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                        <div className="bg-muted p-6 rounded-lg text-center">
+                                            <div className="text-4xl font-bold text-primary mb-2">
+                                                {language === "pt" ? roboticsStats.pt.torneios : roboticsStats.en.tournaments}
+                                            </div>
+                                            <div className="text-lg">
+                                                {language === "pt" ? "Torneios Participados" : "Tournaments Participated"}
+                                            </div>
+                                        </div>
+                                        <div className="bg-muted p-6 rounded-lg text-center">
+                                            <div className="text-4xl font-bold text-primary mb-2">
+                                                {language === "pt" ? roboticsStats.pt.premios : roboticsStats.en.awards}
+                                            </div>
+                                            <div className="text-lg">{language === "pt" ? "Prêmios Conquistados" : "Awards Won"}</div>
+                                        </div>
+                                    </div>
+
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="mb-8"
+                                    >
+                                        <Button
+                                            variant="outline"
+                                            onClick={() => setShowLegend(!showLegend)}
+                                            className="w-full justify-between bg-card hover:bg-muted transition-colors"
+                                        >
+                                            <span className="flex items-center gap-2">
+                                                <List className="text-primary" />
+                                                {language === "pt" ? "Legenda das Competições" : "Competition Legend"}
+                                            </span>
+                                            <motion.div animate={{ rotate: showLegend ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                                                <ChevronLeft className="w-4 h-4 rotate-90" />
+                                            </motion.div>
+                                        </Button>
+
+                                        <motion.div
+                                            initial={false}
+                                            animate={{
+                                            height: showLegend ? "auto" : 0,
+                                            opacity: showLegend ? 1 : 0,
+                                            }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="bg-card p-6 rounded-b-lg border border-t-0 border-border">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                                                    {competitions.map((comp) => (
+                                                    <div key={comp.code} className="flex items-center gap-2">
+                                                        <span className="font-bold text-primary min-w-8">{comp.code}</span>
+                                                        <span className="text-muted-foreground"> - </span>
+                                                        <span className="text-muted-foreground">
+                                                            {language === "pt" ? comp.pt : comp.en}
+                                                        </span>
+                                                    </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    </motion.div>
+
+                                    {/* Seção sobre equipes */}
+                                    <Link href="/teams">
+                                        <motion.div
+                                            whileHover={{ scale: 1.02, y: -2 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+                                        >
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <h3 className="text-xl font-bold mb-2">
+                                                        {language === "pt" ? "Minhas Equipes de Robótica" : "My Robotics Teams"}
+                                                    </h3>
+                                                    <p className="text-muted-foreground">
+                                                        {language === "pt"
+                                                            ? "Clique aqui para conhecer as minhas equipes"
+                                                            : "Click here to meet my teams"}
+                                                    </p>
+                                                </div>
+                                                <div className="text-primary">
+                                                    <ChevronLeft className="w-6 h-6 rotate-180" />
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    </Link>
+                                </div>
+
+                                {isMobile ? renderMobileTimeline(roboticsAchievements) : renderDesktopTimeline(roboticsAchievements)}
+                            </TabsContent>
+                        </Tabs>
+                    </div>
+                </div>
+            </div>
+
+            <Footer language={language} className="bg-muted" />
+        </div>
+    )
 }
