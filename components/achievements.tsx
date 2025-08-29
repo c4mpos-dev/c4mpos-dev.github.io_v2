@@ -26,8 +26,8 @@ export function Achievements({ language }: AchievementsProps) {
             titleEn: "Hackathon Construtech 2024",
             datePt: "Maio 2024",
             dateEn: "May 2024",
-            descriptionPt: "A INTLOG, minha equipe, conquistou o 1º lugar no Hackathon Construtech 2024, desenvolvendo uma solução inovadora para o setor de construção civil.",
-            descriptionEn: "INTLOG, my team, won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
+            descriptionPt: "A INTLOG conquistou o 1º lugar no Hackathon Construtech 2024, desenvolvendo uma solução inovadora para o setor de construção civil.",
+            descriptionEn: "INTLOG won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
             image: "/achievements/geral/hackathon-construtech-2024.jpg",
             link: "https://example.com/react-certification"
         },

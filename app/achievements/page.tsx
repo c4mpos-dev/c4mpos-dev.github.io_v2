@@ -46,13 +46,14 @@ export default function AchievementsPage() {
     const generalAchievements: Achievement[] = [
         {
             id: 1,
-            titlePt: "Certificação em React",
-            titleEn: "React Certification",
-            datePt: "Janeiro 2023",
-            dateEn: "January 2023",
-            descriptionPt: "Certificação avançada em desenvolvimento com React, incluindo hooks, context API e Redux.",
-            descriptionEn: "Advanced certification in React development, including hooks, context API, and Redux.",
-            image: "/placeholder.svg?height=300&width=400",
+            titlePt: "Hackathon ConstruTech",
+            titleEn: "ConstruTech Hackathon",
+            datePt: "Maio 2024",
+            dateEn: "May 2024",
+            descriptionPt: "A INTLOG conquistou o 1º lugar no Hackathon Construtech 2024, desenvolvendo uma solução inovadora para o setor de construção civil.",
+            descriptionEn: "INTLOG won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
+            image: "/achievements/geral/hackathon-construtech-2024.jpg",
+            local: "Santa Rita do Sapucaí - MG",
         },
         {
             id: 2,
@@ -86,23 +87,36 @@ export default function AchievementsPage() {
         },
         {
             id: 5,
-            titlePt: "Certificação em UI/UX Design",
-            titleEn: "UI/UX Design Certification",
-            datePt: "Julho 2021",
-            dateEn: "July 2021",
-            descriptionPt: "Especialização em design de interfaces e experiência do usuário.",
-            descriptionEn: "Specialization in interface design and user experience.",
-            image: "/placeholder.svg?height=300&width=400",
+            titlePt: "OBMEP - Menção Honrosa",
+            titleEn: "OBMEP - Honorable Mention",
+            datePt: "Dezembro 2019",
+            dateEn: "December 2019",
+            descriptionPt: "Menção honrosa pelo desempenho na OBMEP (Olimpíada Brasileira de Matemática das Escolas Públicas).",
+            descriptionEn: "Honorable mention for performance in the OBMEP (Brazilian Mathematics Olympiad for Public Schools).",
+            image: "/achievements/geral/obmep-2019.png",
+            local: "Piraí - RJ"
         },
         {
             id: 6,
-            titlePt: "Certificação Node.js",
-            titleEn: "Node.js Certification",
-            datePt: "Abril 2021",
-            dateEn: "April 2021",
-            descriptionPt: "Certificação em desenvolvimento backend com Node.js e Express.",
-            descriptionEn: "Certification in backend development with Node.js and Express.",
-            image: "/placeholder.svg?height=300&width=400",
+            titlePt: "Moção de Aplausos",
+            titleEn: "Motion of Applause",
+            datePt: "Setembro 2018",
+            dateEn: "September 2018",
+            descriptionPt: "Moção de aplausos da prefeitura de Piraí pelo desempenho na Olimpíada Brasileira de Robótica.",
+            descriptionEn: "Motion of applause from the Piraí city hall for performance in the Brazilian Robotics Olympiad.",
+            image: "/achievements/geral/moção-2018.png",
+            local: "Piraí - RJ"
+        },
+        {
+            id: 7,
+            titlePt: "OMERJ - Menção Honrosa",
+            titleEn: "OMERJ - Honorable Mention",
+            datePt: "Novembro 2017",
+            dateEn: "November 2017",
+            descriptionPt: "Menção honrosa pelo desempenho na prova da OMERJ (Olimpíada de Matemática do Estado do Rio de Janeiro).",
+            descriptionEn: "Honorable mention for performance in the OMERJ (Mathematics Olympiad of the State of Rio de Janeiro) exam.",
+            image: "/achievements/geral/omerj-2017.jpg",
+            local: "Piraí - RJ"
         },
     ]
 
@@ -527,10 +541,13 @@ export default function AchievementsPage() {
                 <p className="text-muted-foreground">
                   {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
                 </p>
-                <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
-                  <Users className="mr-1.5 h-4 w-4" />
-                  {achievement.team}
-                </span>
+
+                {achievement.team && (
+                  <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
+                    <Users className="mr-1.5 h-4 w-4" />
+                    {achievement.team}
+                  </span>
+                )}
 
                 {achievement.link && (
                       <a
@@ -604,7 +621,13 @@ export default function AchievementsPage() {
                   {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
                 </p>
 
-                
+                {achievement.team && (
+                  <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} justify-start`}>
+                    <Users className="mr-1.5 h-4 w-4" />
+                    {achievement.team}
+                  </span>
+                )}
+
                 {achievement.link && (
                     <a
                         href={achievement.link}
