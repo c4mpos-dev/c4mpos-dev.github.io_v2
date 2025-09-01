@@ -7,6 +7,7 @@ import { CodeXml, Smartphone, Monitor, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import GraduationImg from "../assets/graduation.jpg";
+import { GitHubStats } from "./github-stats";
 
 interface AboutProps {
     language: "pt" | "en"
@@ -115,6 +116,10 @@ export function About({ language }: AboutProps) {
                             </Button>
                         </div>
                     </motion.div>
+                </div>
+
+                <div className="max-w-4xl mx-auto mt-20">
+                    <GitHubStats language={language} />
                 </div>
             </div>
 

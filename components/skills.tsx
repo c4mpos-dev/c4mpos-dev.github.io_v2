@@ -44,8 +44,7 @@ const Skills = ({ language }: SkillsProps) => {
 				{ name: "Node.js", icon: "fa-brands fa-node-js" },
 				{ name: "Express", icon: "fa-brands fa-node-js" },
 				{ name: "Django", icon: "fa-brands fa-python" },
-				{ name: "Flask", icon: "fa-brands fa-python" },
-				{ name: "Java", icon: "fa-brands fa-java" }
+				{ name: "Flask", icon: "fa-brands fa-python" }
 			],
 		},
 		{
@@ -99,14 +98,16 @@ const Skills = ({ language }: SkillsProps) => {
 				</motion.div>
 
 				<Tabs defaultValue="frontend" className="w-full max-w-4xl mx-auto">
-					<TabsList className="grid w-full grid-cols-6 mb-8">
-						<TabsTrigger value="languages">{language === "pt" ? "Linguagens" : "Languages"}</TabsTrigger>
-						<TabsTrigger value="frontend">Frontend</TabsTrigger>
-						<TabsTrigger value="backend">Backend</TabsTrigger>
-						<TabsTrigger value="mobile">Mobile</TabsTrigger>
-						<TabsTrigger value="database">{language === "pt" ? "Banco" : "Database"}</TabsTrigger>
-						<TabsTrigger value="tools">{language === "pt" ? "Ferramentas" : "Tools"}</TabsTrigger>
-					</TabsList>
+					<div className="overflow-x-auto mb-8">
+						<TabsList className="grid w-full min-w-[600px] md:min-w-0 grid-cols-6 mb-0">
+							<TabsTrigger value="languages">{language === "pt" ? "Linguagens" : "Languages"}</TabsTrigger>
+							<TabsTrigger value="frontend">Frontend</TabsTrigger>
+							<TabsTrigger value="backend">Backend</TabsTrigger>
+							<TabsTrigger value="mobile">Mobile</TabsTrigger>
+							<TabsTrigger value="database">{language === "pt" ? "Banco" : "Database"}</TabsTrigger>
+							<TabsTrigger value="tools">{language === "pt" ? "Ferramentas" : "Tools"}</TabsTrigger>
+						</TabsList>
+					</div>
 
 					{skillCategories.map((category) => (
 						<TabsContent key={category.id} value={category.id}>
@@ -122,8 +123,8 @@ const Skills = ({ language }: SkillsProps) => {
 									initial={{ opacity: 0, scale: 0.8 }}
 									animate={{ opacity: 1, scale: 1 }}
 									transition={{
-									duration: 0.3,
-									delay: skillIndex * 0.05,
+										duration: 0.3,
+										delay: skillIndex * 0.05,
 									}}
 									className="skill-icon bg-card rounded-lg p-4 text-center shadow-md border border-border hover:border-primary/30 transition-all duration-300"
 								>

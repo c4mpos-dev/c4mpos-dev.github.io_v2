@@ -599,8 +599,8 @@ export default function AchievementsPage() {
                                 />
                             </div>
                             <div className="p-4">
-                                <div className="flex gap-1 text-sm font-medium mb-2">
-                                    {language === "pt" ? achievement.datePt : achievement.dateEn} -
+                                <div className="flex flex-col-reverse text-xs text-muted-foreground font-medium mb-3">
+                                    {language === "pt" ? achievement.datePt : achievement.dateEn}
                                     <div className="inline-flex items-center text-sm text-primary mb-2">
                                         <MapPin className="inline-block mr-0.5 h-4 w-4" />
                                         {language === "pt" ? achievement.local : achievement.local}
@@ -614,7 +614,7 @@ export default function AchievementsPage() {
                                 </p>
 
                                 {achievement.team && (
-                                    <span className={`flex items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} justify-start`}>
+                                    <span className={`flex text-sm items-center mt-2 ${achievement.team === "Nine Tails" ? "text-purple-500" : achievement.team == "Smart Lego" ? "text-pink-500" : "text-blue-600"} justify-start`}>
                                         <Users className="mr-1.5 h-4 w-4" />
                                         {achievement.team}
                                     </span>
@@ -762,7 +762,7 @@ export default function AchievementsPage() {
                                         >
                                             <span className="flex items-center gap-2">
                                                 <List className="text-primary" />
-                                                {language === "pt" ? "Legenda das Competições" : "Competition Legend"}
+                                                {language === "pt" ? "Leg. das Competições" : "Competition Legend"}
                                             </span>
                                             <motion.div animate={{ rotate: showLegend ? 180 : 0 }} transition={{ duration: 0.2 }}>
                                                 <ChevronLeft className="w-4 h-4 rotate-90" />
@@ -779,7 +779,7 @@ export default function AchievementsPage() {
                                             className="overflow-hidden"
                                         >
                                             <div className="bg-card p-6 rounded-b-lg border border-t-0 border-border">
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs sm:text-sm">
                                                     {competitions.map((comp) => (
                                                     <div key={comp.code} className="flex items-center gap-2">
                                                         <span className="font-bold text-primary min-w-8">{comp.code}</span>
@@ -799,14 +799,14 @@ export default function AchievementsPage() {
                                         <motion.div
                                             whileHover={{ scale: 1.02, y: -2 }}
                                             whileTap={{ scale: 0.98 }}
-                                            className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+                                            className="bg-gradient-to-r from-primary/10 to-primary/5 p-4 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 cursor-pointer"
                                         >
                                             <div className="flex items-center justify-between">
                                                 <div>
-                                                    <h3 className="text-xl font-bold mb-2">
+                                                    <h3 className="text-base sm:text-xl font-bold mb-2">
                                                         {language === "pt" ? "Minhas Equipes de Robótica" : "My Robotics Teams"}
                                                     </h3>
-                                                    <p className="text-muted-foreground">
+                                                    <p className="text-muted-foreground text-sm sm:text-base">
                                                         {language === "pt"
                                                             ? "Clique aqui para conhecer as minhas equipes"
                                                             : "Click here to meet my teams"}

@@ -35,61 +35,33 @@ export function Hero({ language }: HeroProps) {
         setMounted(true)
         let currentLine = 0;
         let currentChar = 0;
-        let isDeleting = false;
         let typingSpeed = 50; // velocidade base de digitação
 
         const type = () => {
-            // Se chegou ao final de todas as linhas, reinicia
-            if (currentLine >= codeSnippets.length) {
-                currentLine = 0;
-                setTypedText("");
-                setTimeout(type, 3000); // Pausa antes de reiniciar
-                return;
-            }
+            // Se acabou todas as linhas, parar
+            if (currentLine >= codeSnippets.length) return;
 
-            // Texto atual a ser digitado
             const fullText = codeSnippets.slice(0, currentLine + 1).join("\n");
 
-            if (!isDeleting) {
-                // Digitando
-                if (currentChar < fullText.length) {
-                    setTypedText(fullText.substring(0, currentChar + 1));
-                    currentChar++;
+            if (currentChar < fullText.length) {
+                setTypedText(fullText.substring(0, currentChar + 1));
+                currentChar++;
 
-                    // Velocidade variável para parecer mais natural
-                    typingSpeed = Math.random() * 30 + 20;
+                // Velocidade variável para parecer mais natural
+                typingSpeed = Math.random() * 30 + 20;
 
-                    // Pausa maior após caracteres específicos
-                    const lastChar = fullText[currentChar - 1]
-                    if (lastChar === ";" || lastChar === "{" || lastChar === "}") {
-                        typingSpeed = 300;
-                    }
-                } else {
-                // Terminou de digitar a linha atual
-                if (currentLine < codeSnippets.length - 1) {
-                    currentLine++;
-                    setTimeout(type, 500); // Pausa antes da próxima linha
-                    return;
-                } else {
-                    // Terminou todas as linhas, pausa antes de começar a apagar
-                    setTimeout(() => {
-                        isDeleting = true;
-                        type();
-                    }, 5000);
-                    return;
+                // Pausa maior após caracteres específicos
+                const lastChar = fullText[currentChar - 1];
+                if (lastChar === ";" || lastChar === "{" || lastChar === "}") {
+                    typingSpeed = 300;
                 }
-                }
-            } else {
-                // Não implementamos a deleção, apenas reiniciamos quando chega ao fim
-                isDeleting = false;
-                currentLine = 0;
-                currentChar = 0;
-                setTypedText("");
-                setTimeout(type, 1000);
-                return;
+
+                setTimeout(type, typingSpeed);
+            } else if (currentLine < codeSnippets.length - 1) {
+                // Passa para a próxima linha
+                currentLine++;
+                setTimeout(type, 500);
             }
-
-            setTimeout(type, typingSpeed);
         }
 
         // Inicia o efeito de digitação
@@ -98,29 +70,26 @@ export function Hero({ language }: HeroProps) {
         // Efeito de cursor piscando
         const cursorInterval = setInterval(() => {
             setCursorVisible((prev) => !prev);
-        }, 500)
+        }, 500);
 
         // Scroll automático para o final do terminal
+        let scrollInterval: NodeJS.Timeout | undefined;
         if (terminalRef.current) {
             const scrollToBottom = () => {
                 if (terminalRef.current) {
                     terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
                 }
             }
-
-            const scrollInterval = setInterval(scrollToBottom, 100);
-            return () => {
-                clearTimeout(typingTimeout);
-                clearInterval(cursorInterval);
-                clearInterval(scrollInterval);
-            }
+            scrollInterval = setInterval(scrollToBottom, 100);
         }
 
         return () => {
             clearTimeout(typingTimeout);
             clearInterval(cursorInterval);
+            if (scrollInterval) clearInterval(scrollInterval);
         }
     }, []);
+
 
     const socialLinks = [
         { icon: "fa-brands fa-whatsapp", url: "http://wa.me/55241372475", label: "WhatsApp" },
@@ -229,10 +198,6 @@ export function Hero({ language }: HeroProps) {
                         </div>
                     </div>
                 </motion.div>
-            </div>
-
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i className="fa-solid fa-chevron-down text-primary text-2xl"></i>
             </div>
         </section>
     )

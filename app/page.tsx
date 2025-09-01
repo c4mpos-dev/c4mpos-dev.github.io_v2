@@ -12,39 +12,42 @@ import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import Experience from "@/components/experience"
+import { GameHint } from "@/components/game-hint"
+import { MiniGame } from "@/components/mini-game"
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false)
-  const [language, setLanguage] = useState<"pt" | "en">("pt")
-  const { theme, setTheme } = useTheme()
+    const [mounted, setMounted] = useState(false);
+    const [language, setLanguage] = useState<"pt" | "en">("pt");
+    const { theme, setTheme } = useTheme();
 
-  // Apenas verificamos se o componente está montado para evitar problemas de hidratação
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-  if (!mounted) {
-    return null
-  }
+    if (!mounted) {
+        return null
+    }
 
-  const toggleLanguage = () => {
-    setLanguage(language === "pt" ? "en" : "pt")
-  }
+    const toggleLanguage = () => {
+        setLanguage(language === "pt" ? "en" : "pt")
+    }
 
-  return (
-    <main className="min-h-screen bg-background text-foreground">
-      <div className="fixed top-0 left-0 w-full z-50">
-        <Header language={language} toggleLanguage={toggleLanguage} theme={theme as string} setTheme={setTheme} />
-      </div>
-      <Hero language={language} />
-      <About language={language} />
-      <Experience language={language} />
-      <Achievements language={language} />
-      <Projects language={language} />
-      <Skills language={language} />
-      <Contact language={language} />
-      <Footer language={language} />
-      <Toaster />
-    </main>
-  )
+    return (
+        <main className="min-h-screen bg-background text-foreground">
+            <div className="fixed top-0 left-0 w-full z-50">
+                <Header language={language} toggleLanguage={toggleLanguage} theme={theme as string} setTheme={setTheme} />
+            </div>
+            <Hero language={language} />
+            <About language={language} />
+            <Experience language={language} />
+            <Achievements language={language} />
+            <Projects language={language} />
+            <Skills language={language} />
+            <Contact language={language} />
+            <Footer language={language} />
+            <MiniGame language={language} />
+            <GameHint language={language} />
+            <Toaster />
+        </main>
+    )
 }

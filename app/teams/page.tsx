@@ -177,9 +177,9 @@ export default function TeamsPage() {
 
                                     {/* Content */}
                                     <div className="p-8">
-                                        <div className="flex items-start justify-between mb-4">
-                                        <h2 className="text-2xl font-bold">{language === "pt" ? team.namePt : team.nameEn}</h2>
-                                        <div className="text-primary font-medium text-sm">{team.period}</div>
+                                        <div className="flex flex-col items-start sm:flex-row sm:items-center justify-between mb-4">
+                                            <h2 className="text-2xl font-bold">{language === "pt" ? team.namePt : team.nameEn}</h2>
+                                            <div className="text-primary font-medium text-sm">{team.period}</div>
                                         </div>
 
                                         {/* Logo da equipe */}
