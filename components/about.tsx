@@ -6,7 +6,6 @@ import { CodeXml, Smartphone, Monitor, Database } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-import GraduationImg from "../assets/graduation.jpg";
 import { GitHubStats } from "./github-stats";
 
 interface AboutProps {
@@ -65,7 +64,7 @@ export function About({ language }: AboutProps) {
                         className="relative"
                     >
                         <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-xl">
-                            <Image src={GraduationImg} alt="Cauã Campos" fill className="object-cover" />
+                            <Image src="/og-image.jpg" alt="Cauã Campos" fill className="object-cover" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         </div>
                     </motion.div>
