@@ -7,9 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://c4mpos-dev-github-io.vercel.app/"),
+    metadataBase: new URL("https://cauacampos.dev"),
     title: "Cauã Campos | Desenvolvedor Full Stack",
-    description: "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack especializado em aplicações modernas e escaláveis.",
+    description:
+        "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack especializado em aplicações modernas e escaláveis.",
     keywords: [
         "Cauã Campos",
         "Desenvolvedor Full Stack",
@@ -22,16 +23,17 @@ export const metadata: Metadata = {
     authors: [{ name: "Cauã Campos" }],
     openGraph: {
         title: "Cauã Campos | Desenvolvedor Full Stack",
-        description: "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack especializado em aplicações modernas e escaláveis.",
-        url: "https://c4mpos-dev-github-io.vercel.app/",
+        description:
+            "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack especializado em aplicações modernas e escaláveis.",
+        url: "https://cauacampos.dev",
         siteName: "Cauã Campos Dev",
         images: [
-            {
-                url: "/og-image.png",
-                width: 1200,
-                height: 630,
-                alt: "Preview do portfólio de Cauã Campos",
-            },
+        {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Preview do portfólio de Cauã Campos",
+        },
         ],
         locale: "pt_BR",
         type: "website",
@@ -40,9 +42,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Cauã Campos | Desenvolvedor Full Stack",
         description:
-        "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack.",
+            "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack.",
         images: ["/og-image.png"],
-        creator: "c14_campos",
+        creator: "@c14_campos",
     },
     icons: {
         icon: "/favicon.ico",
