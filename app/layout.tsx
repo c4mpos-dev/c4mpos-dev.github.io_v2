@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         siteName: "Cauã Campos Dev",
         images: [
         {
-            url: "/og-image.png",
+            url: "/og-image.jpg",
             width: 1200,
             height: 630,
             alt: "Preview do portfólio de Cauã Campos",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         title: "Cauã Campos | Desenvolvedor Full Stack",
         description:
             "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack.",
-        images: ["/og-image.png"],
+        images: ["/og-image.jpg"],
         creator: "@c14_campos",
     },
     icons: {
