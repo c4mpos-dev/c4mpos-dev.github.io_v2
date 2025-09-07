@@ -35,8 +35,8 @@ const Footer = ({ language, className }: FooterProps) => {
                         </a>
                     </div>
                 </div>
-                
-                <div className="border-t border-border mt-10 pt-6 text-center text-muted-foreground">
+
+                <div className={`border-t ${className ? "border-white/20" : "border-border"} mt-8 pt-6 text-center text-muted-foreground`}>
                     <p>
                         &copy; {currentYear} Cauã Campos.{" "}
                         {language === "pt" ? "Todos os direitos reservados." : "All rights reserved."}

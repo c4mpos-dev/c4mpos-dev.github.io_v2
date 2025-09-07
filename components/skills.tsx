@@ -97,7 +97,7 @@ const Skills = ({ language }: SkillsProps) => {
 					<div className="w-20 h-1 bg-primary mx-auto"></div>
 				</motion.div>
 
-				<Tabs defaultValue="frontend" className="w-full max-w-4xl mx-auto">
+				<Tabs defaultValue="languages" className="w-full max-w-4xl mx-auto">
 					<div className="overflow-x-auto mb-8">
 						<TabsList className="grid w-full min-w-[600px] md:min-w-0 grid-cols-6 mb-0">
 							<TabsTrigger value="languages">{language === "pt" ? "Linguagens" : "Languages"}</TabsTrigger>

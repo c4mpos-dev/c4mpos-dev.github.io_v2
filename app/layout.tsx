@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://cauacampos.dev"),
-    title: "Cauã Campos | Desenvolvedor Full Stack",
+    title: "Cauã Campos | Dev",
     description:
         "Portfólio profissional de Cauã Campos, desenvolvedor Full Stack especializado em aplicações modernas e escaláveis.",
     keywords: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         creator: "@c14_campos",
     },
     icons: {
-        icon: "/favicon.ico",
+        icon: "/logos/cc-logo.png",
     },
 }
 
