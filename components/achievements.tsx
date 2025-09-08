@@ -28,8 +28,7 @@ export function Achievements({ language }: AchievementsProps) {
             dateEn: "May 2024",
             descriptionPt: "A INTLOG conquistou o 1º lugar no Hackathon Construtech 2024, desenvolvendo uma solução inovadora para o setor de construção civil.",
             descriptionEn: "INTLOG won 1st place at the Construtech 2024 Hackathon, developing an innovative solution for the construction industry.",
-            image: "/achievements/geral/hackathon-construtech-2024.jpg",
-            link: "https://example.com/react-certification"
+            image: "/achievements/geral/hackathon-construtech-2024.jpg"
         },
         {
             id: 2,
@@ -39,8 +38,7 @@ export function Achievements({ language }: AchievementsProps) {
             dateEn: "April 2023",
             descriptionPt: "Minha equipe, Nine Tails, conquistou o prêmio 'Rookie Inspiration Award' no Campeonato Mundial de Robótica FIRST em Houston, Texas.",
             descriptionEn: "My team, Nine Tails, won the 'Rookie Inspiration Award' at the FIRST Robotics World Championship in Houston, Texas.",
-            image: "/achievements/robotics/frc-houston.jpg",
-            link: "https://aws.amazon.com/certification/"
+            image: "/achievements/robotics/frc-houston.jpg"
         },
         {
             id: 3,
@@ -50,8 +48,7 @@ export function Achievements({ language }: AchievementsProps) {
             dateEn: "July 2023",
             descriptionPt: "A Smart Lego, minha equipe, conquistou o 3º lugar na modalidade Missão Impossível Hardware no Fira RoboWorld Cup em Wolfenbüttel, Alemanha.",
             descriptionEn: "Smart Lego, my team, won 3rd place in the Impossible Mission Hardware category at the Fira RoboWorld Cup in Wolfenbüttel, Germany.",
-            image: "/achievements/robotics/fira-roboworld-cup-2023.jpg",
-            link: "https://aws.amazon.com/certification/"
+            image: "/achievements/robotics/fira-roboworld-cup-2023.jpg"
         },
     ]
 
@@ -124,19 +121,6 @@ export function Achievements({ language }: AchievementsProps) {
                                                 <p className="text-muted-foreground">
                                                     {language === "pt" ? achievement.descriptionPt : achievement.descriptionEn}
                                                 </p>
-                                                {achievement.link && (
-                                                    <div className="mt-4">
-                                                        <a
-                                                            href={achievement.link}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
-                                                        >
-                                                            {language === "pt" ? "Ver Certificado" : "View Certificate"}
-                                                            <ExternalLink className="ml-2 h-4 w-4" />
-                                                        </a>
-                                                    </div>
-                                                )}
                                             </div>
                                         </CardContent>
                                     </Card>
