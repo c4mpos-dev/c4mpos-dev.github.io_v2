@@ -12,12 +12,32 @@ const Experience = ({ language }: ExperienceProps) => {
     const experiences = [
         {
             id: 1,
+            company: "Next Devices",
+            position: language === "pt" ? "Desenvolvedor Full Stack" : "Full Stack Developer",
+            period: language === "pt" ? "Jan 2026 - Atual" : "Jan 2026 - Current",
+            location: "Santa Rita do Sapucaí, MG",
+            type: language === "pt" ? "Efetivo" : "Full-time",
+            status: "current",
+            description:
+                language === "pt"
+                ? "Desenvolvimento e manutenção de aplicações utilizando tecnologias modernas."
+                : "Development and maintenance of applications using modern technologies.",
+            responsibilities: [
+                language === "pt" ? "Desenvolvimento de aplicações com React.js" : "Development of applications with React.js",
+                language === "pt" ? "Desenvolvimento de novos recursos" : "Development of new features",
+                language === "pt" ? "Manutenção de código existente" : "Existing code maintenance",
+                language === "pt" ? "Documentação técnica" : "Technical documentation",
+            ],
+            technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "NestJS", "Git"],
+        },
+        {
+            id: 2,
             company: "Oracclum Company LTDA",
-            position: language === "pt" ? "Desenvolvimento Full Stack" : "Full Stack Development",
-            period: language === "pt" ? "Abr 2025 - Atual" : "Apr 2025 - Current",
+            position: language === "pt" ? "Desenvolvedor Full Stack" : "Full Stack Developer",
+            period: language === "pt" ? "Abr 2025 - Jan 2026" : "Apr 2025 - Jan 2026",
             location: language === "pt" ? "Remoto" : "Remote",
             type: language === "pt" ? "Estágio" : "Internship",
-            status: "current",
+            status: "completed",
             description:
                 language === "pt"
                 ? "Desenvolvimento e manutenção de aplicações web utilizando tecnologias modernas."
@@ -31,9 +51,9 @@ const Experience = ({ language }: ExperienceProps) => {
             technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MySQL", "Git"],
         },
         {
-            id: 2,
+            id: 3,
             company: "INATEL",
-            position: language === "pt" ? "Desenvolvimento Full Stack" : "Full Stack Development",
+            position: language === "pt" ? "Desenvolvedor Full Stack" : "Full Stack Developer",
             period: language === "pt" ? "Abr - Set 2024" : "Apr - Sep 2024",
             location: "Santa Rita do Sapucaí, MG",
             type: language === "pt" ? "Estágio" : "Internship",
