@@ -23,12 +23,11 @@ const Experience = ({ language }: ExperienceProps) => {
                 ? "Desenvolvimento e manutenção de aplicações utilizando tecnologias modernas."
                 : "Development and maintenance of applications using modern technologies.",
             responsibilities: [
-                language === "pt" ? "Desenvolvimento de aplicações com React.js" : "Development of applications with React.js",
-                language === "pt" ? "Desenvolvimento de novos recursos" : "Development of new features",
-                language === "pt" ? "Manutenção de código existente" : "Existing code maintenance",
-                language === "pt" ? "Documentação técnica" : "Technical documentation",
+                language === "pt" ? "Desenvolvimento de aplicações utilizando Node.js com o framework NestJS, aplicando padrões de Clean Architecture e Domain-Driven Design (DDD) para garantir a manutenibilidade do sistema" : "Development of applications using Node.js with the NestJS framework, applying Clean Architecture and Domain-Driven Design (DDD) patterns to ensure system maintainability",
+                language === "pt" ? "Construção de interfaces modernas e performáticas com React (Vite e Next.js)." : "Development of modern and performant interfaces with React (Vite and Next.js).",
+                language === "pt" ? "Implementação de regras de negócio complexas no ecossistema TypeScript, focando em desacoplamento e testes." : "Implementation of complex business rules in the TypeScript ecosystem, focusing on decoupling and testing.",
             ],
-            technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "NestJS", "Git"],
+            technologies: ["React.js", "Vite", "Next.js", "TypeScript", "Tailwind CSS", "NestJS", "Git"],
         },
         {
             id: 2,
